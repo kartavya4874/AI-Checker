@@ -1,10 +1,11 @@
 # Core AI / Cloud APIs
 openai>=1.12.0
 google-generativeai>=0.4.1
+protobuf==3.20.3
 
 # Math & Chemistry
 sympy>=1.12
-rdkit-pypi>=2023.9.1
+rdkit>=2023.9.1
 
 # Image Processing
 opencv-python>=4.9.0
@@ -27,3 +28,4 @@ sqlalchemy>=2.0.25
 python-dotenv>=1.0.0
 openpyxl>=3.1.2
 RestrictedPython>=7.0
+setuptools>=70.0.0

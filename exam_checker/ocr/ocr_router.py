@@ -7,7 +7,7 @@ from PIL import Image
 from typing import Dict, Any
 from preprocessing.blank_detector import is_blank
 from ocr.handwriting_ocr import extract_handwritten_text
-from ocr.multilingual_ocr import extract_multilingual_text, has_non_latin
+from ocr.multilingual_ocr import extract_multilingual_text, requires_multilingual_ocr
 from utils.logger import get_logger
 
 logger = get_logger("ocr_router")
@@ -52,7 +52,7 @@ def route_ocr(img: Image.Image) -> Dict[str, Any]:
         logger.warning(f"Primary OCR failed: {e}")
 
     # Step 3: Check for non-Latin scripts
-    if result["text"] and has_non_latin(result["text"]):
+    if result["text"] and requires_multilingual_ocr(result["text"]):
         logger.info("Non-Latin script detected, trying multilingual OCR")
         try:
             ml_text, ml_conf, ml_langs = extract_multilingual_text(img)
