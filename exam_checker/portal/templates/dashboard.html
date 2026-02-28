@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | AI Exam Checker{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-white">Dashboard</h1>
+    <p class="text-gray-400 mt-2">Overview of all courses and assessments processed by the system.</p>
+</div>
+
+<!-- Stats row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div class="card p-6">
+        <h3 class="text-gray-400 text-sm font-semibold uppercase">Total Courses</h3>
+        <p class="text-4xl font-bold text-white mt-2">{{ total_courses }}</p>
+    </div>
+    <div class="card p-6">
+        <h3 class="text-gray-400 text-sm font-semibold uppercase">Total Assessments</h3>
+        <p class="text-4xl font-bold text-white mt-2">{{ total_assessments }}</p>
+    </div>
+    <div class="card p-6">
+        <h3 class="text-gray-400 text-sm font-semibold uppercase">Students Processed</h3>
+        <p class="text-4xl font-bold text-white mt-2">{{ total_students }}</p>
+    </div>
+</div>
+
+<!-- Courses List -->
+<h2 class="text-xl font-bold text-white mb-4">Your Courses</h2>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    {% for course in courses %}
+    <div class="card p-6 hover:border-gray-500 transition-colors">
+        <div class="flex justify-between items-start mb-4">
+            <div>
+                <h3 class="text-2xl font-bold text-white">{{ course.code }}</h3>
+                <p class="text-gray-400">{{ course.name }}</p>
+            </div>
+            <a href="/course/{{ course.id }}"
+                class="bg-[#238636] text-white px-4 py-2 rounded-md hover:bg-[#2ea043] transition-colors text-sm font-semibold">
+                View Details
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-6">
+            <div class="bg-[#0d1117] p-3 rounded">
+                <span class="block text-gray-400 text-xs">Assessments</span>
+                <span class="text-lg font-semibold">{{ course.assessment_count }}</span>
+            </div>
+            <div class="bg-[#0d1117] p-3 rounded">
+                <span class="block text-gray-400 text-xs">Enrolled Students</span>
+                <span class="text-lg font-semibold">{{ course.student_count }}</span>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-span-2 text-center py-12 card">
+        <p class="text-gray-400 mb-4">No courses found. Start by processing an exam.</p>
+        <a href="/upload"
+            class="bg-[#238636] text-white px-6 py-3 rounded-md hover:bg-[#2ea043] transition-colors font-semibold">
+            Process Exam
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

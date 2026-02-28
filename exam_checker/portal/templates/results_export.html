@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Export Results | AI Exam Checker{% endblock %}
+
+{% block content %}
+<div class="mb-4 flex items-center text-sm text-gray-400">
+    <a href="/" class="hover:text-white transition-colors">Dashboard</a>
+    <span class="mx-2">/</span>
+    <span class="text-white">Export Results</span>
+</div>
+
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-white">Export Results</h1>
+    <p class="text-gray-400 mt-2">Download assessment analytics and grading reports.</p>
+</div>
+
+<div class="card p-8 max-w-2xl">
+    <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2 mb-6">Select Assessment</h2>
+
+    <div class="space-y-6">
+        <div>
+            <label class="block text-sm font-semibold text-gray-300 mb-2">Assessment to Export</label>
+            <form
+                onsubmit="event.preventDefault(); window.location.href='/export/' + document.getElementById('export_sel').value + '/csv';">
+                <select id="export_sel" required
+                    class="w-full bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#58a6ff] mb-6">
+                    {% for c in courses %}
+                    <optgroup label="{{ c.code }} — {{ c.name }}">
+                        {% for a in assessments_by_course[c.id] %}
+                        <option value="{{ a.id }}">{{ a.title }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    {% endfor %}
+                </select>
+
+                <button type="submit"
+                    class="w-full bg-[#238636] text-white px-4 py-3 rounded-md hover:bg-[#2ea043] font-semibold flex items-center justify-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>Download CSV Report</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

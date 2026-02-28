@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Process Exams | AI Exam Checker{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-white">Process Exams</h1>
+    <p class="text-gray-400 mt-2">Upload answer key and student answer sheets to begin AI grading.</p>
+</div>
+
+<div class="max-w-4xl max-w-full">
+    <form action="/start_processing" method="post" enctype="multipart/form-data" class="card p-8 space-y-8">
+
+        <!-- Course & Assessment -->
+        <div class="space-y-4">
+            <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2">1. Assessment Details</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Course</label>
+                    <select name="course_id" required
+                        class="w-full bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-2 text-white focus:outline-none focus:border-[#58a6ff]">
+                        <option value="">-- Select Course --</option>
+                        {% for c in courses %}
+                        <option value="{{ c.id }}" {% if request.query_params.get('course')==c.id|string %}selected{%
+                            endif %}>
+                            {{ c.code }} — {{ c.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Assessment Title</label>
+                    <input type="text" name="assessment_title" required placeholder="e.g., Midterm 1"
+                        class="w-full bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-2 text-white focus:outline-none focus:border-[#58a6ff]">
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Uploads -->
+        <div class="space-y-4 border-t border-gray-800 pt-6">
+            <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2">2. Upload Documents</h2>
+
+            <div class="grid grid-cols-1 gap-6">
+                <!-- Answer Key -->
+                <div class="card bg-[#0d1117] border-dashed p-6">
+                    <label class="block text-sm font-semibold text-white mb-2">Answer Key (PDF)</label>
+                    <p class="text-xs text-gray-400 mb-4">Upload the expected solutions. The AI will segment this into
+                        questions automatically.</p>
+                    <input type="file" name="answer_key" accept=".pdf" required
+                        class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#21262d] file:text-white hover:file:bg-[#30363d]">
+                </div>
+
+                <!-- Student Scripts -->
+                <div class="card bg-[#0d1117] border-dashed border-[#58a6ff] p-6 lg:bg-blue-900/10">
+                    <label class="block text-sm font-semibold text-[#58a6ff] mb-2">Student Answer Sheets (PDFs)</label>
+                    <p class="text-xs text-gray-400 mb-4">Select all student answer sheets to process. Filenames should
+                        ideally contain roll numbers.</p>
+                    <input type="file" name="student_files" accept=".pdf" multiple required
+                        class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#58a6ff] file:text-white hover:file:bg-[#318bf8]">
+                </div>
+            </div>
+        </div>
+
+        <!-- Grading Rules -->
+        <div class="space-y-4 border-t border-gray-800 pt-6">
+            <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2">3. Grading Rules</h2>
+
+            <div>
+                <label class="block text-sm font-semibold text-gray-300 mb-2">Marks Allocation</label>
+                <p class="text-xs text-gray-400 mb-2">Comma-separated marks per question. (e.g., 10, 5.5, 20)</p>
+                <input type="text" name="marks_per_question" required value="10, 10, 10, 10, 10"
+                    class="w-full bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-2 text-white font-mono focus:outline-none focus:border-[#58a6ff]">
+            </div>
+
+            <div class="card bg-[#0d1117] p-6 mt-4 opacity-75">
+                <label class="block text-sm font-semibold text-gray-300 mb-2">Teacher Samples (Optional Few-Shot
+                    Context)</label>
+                <p class="text-xs text-gray-400 mb-4">Upload previously marked papers to tech the AI your specific
+                    grading style.</p>
+                <input type="file" name="sample_files" accept=".pdf" multiple
+                    class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#21262d] file:text-white hover:file:bg-[#30363d]">
+            </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="pt-6 border-t border-gray-800 flex justify-end">
+            <button type="submit"
+                class="bg-[#238636] text-white px-8 py-3 rounded-md hover:bg-[#2ea043] transition-colors font-bold text-lg flex items-center space-x-2">
+                <span>⚡</span>
+                <span>Start AI Processing</span>
+            </button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}{{ assessment.title }} | AI Exam Checker{% endblock %}
+
+{% block content %}
+<div class="mb-4 flex items-center text-sm text-gray-400">
+    <a href="/" class="hover:text-white transition-colors">Dashboard</a>
+    <span class="mx-2">/</span>
+    <a href="/course/{{ course.id }}" class="hover:text-white transition-colors">{{ course.code }}</a>
+    <span class="mx-2">/</span>
+    <span class="text-white">{{ assessment.title }}</span>
+</div>
+
+<div class="flex justify-between items-end mb-8">
+    <div>
+        <h1 class="text-3xl font-bold text-white">{{ assessment.title }}</h1>
+        <p class="text-gray-400 mt-1">{{ course.code }} — Total Marks: {{ assessment.total_marks }}</p>
+    </div>
+    <div class="flex space-x-3">
+        <button
+            class="border border-gray-600 hover:bg-gray-800 text-white px-4 py-2 rounded-md transition-colors text-sm">
+            Recalculate Grades
+        </button>
+        <a href="/export/{{ assessment.id }}/csv"
+            class="bg-[#238636] text-white px-4 py-2 rounded-md hover:bg-[#2ea043] font-semibold text-sm">
+            Export CSV
+        </a>
+    </div>
+</div>
+
+<!-- Stats row -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+    <div class="card p-4 text-center">
+        <h3 class="text-gray-400 text-xs font-semibold uppercase">Total Students</h3>
+        <p class="text-2xl font-bold text-white mt-1">{{ stats.count }}</p>
+    </div>
+    <div class="card p-4 text-center">
+        <h3 class="text-gray-400 text-xs font-semibold uppercase">Average (%)</h3>
+        <p class="text-2xl font-bold text-[#58a6ff] mt-1">{{ stats.mean }}%</p>
+    </div>
+    <div class="card p-4 text-center">
+        <h3 class="text-gray-400 text-xs font-semibold uppercase">Median (%)</h3>
+        <p class="text-2xl font-bold text-white mt-1">{{ stats.median }}%</p>
+    </div>
+    <div class="card p-4 text-center">
+        <h3 class="text-gray-400 text-xs font-semibold uppercase">Highest (%)</h3>
+        <p class="text-2xl font-bold text-green-400 mt-1">{{ stats.max }}%</p>
+    </div>
+    <div class="card p-4 text-center">
+        <h3 class="text-gray-400 text-xs font-semibold uppercase">Pass Rate</h3>
+        <p class="text-2xl font-bold text-white mt-1">{{ stats.pass_rate }}%</p>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+    <div class="card p-6">
+        <h3 class="text-lg font-bold text-white mb-4">Grade Distribution</h3>
+        <canvas id="gradeChart" height="200"></canvas>
+    </div>
+    <!-- (Optional) Question analysis chart would go here -->
+    <div class="card p-6 flex items-center justify-center text-gray-500">
+        Chart placeholder (e.g., Score spread)
+    </div>
+</div>
+
+<!-- Results Table -->
+<h2 class="text-xl font-bold text-white mb-4">Student Results</h2>
+<div class="card overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Marks</th>
+                    <th>Percentage</th>
+                    <th>Grade</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td class="font-mono text-gray-300">{{ result.roll_number }}</td>
+                    <td>{{ result.student_name }}</td>
+                    <td>
+                        {% if result.processing_status == 'completed' %}
+                        <span class="text-green-400">Completed</span>
+                        {% elif result.processing_status == 'processing' %}
+                        <span class="text-yellow-400">Processing</span>
+                        {% else %}
+                        <span class="text-red-400">{{ result.processing_status }}</span>
+                        {% endif %}
+                    </td>
+                    <td class="font-semibold">{{ result.total_marks_obtained }} / {{ result.total_marks_allocated }}
+                    </td>
+                    <td>{{ "%.1f"|format(result.percentage) }}%</td>
+                    <td
+                        class="font-bold {% if result.percentage >= 80 %}text-green-400{% elif result.percentage >= 50 %}text-yellow-400{% else %}text-red-400{% endif %}">
+                        {{ result.grade }}
+                    </td>
+                    <td>
+                        <a href="/student/{{ result.id }}" class="text-[#58a6ff] hover:underline">View Sheet &rarr;</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7" class="text-center py-8 text-gray-500">No results found for this assessment.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Script for Chart.js -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Parse grade distribution
+        const gradeDist = {{ stats.grade_distribution | tojson | safe if stats.grade_distribution else '{}'
+    }};
+    const labels = Object.keys(gradeDist).sort();
+    const data = labels.map(label => gradeDist[label]);
+
+    if (labels.length > 0) {
+        const ctx = document.getElementById('gradeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Number of Students',
+                    data: data,
+                    backgroundColor: '#58a6ff',
+                    borderColor: '#1f6feb',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: '#30363d' }, ticks: { color: '#8b949e', stepSize: 1 } },
+                    x: { grid: { display: false }, ticks: { color: '#8b949e' } }
+                }
+            }
+        });
+    }
+    });
+</script>
+{% endblock %}
