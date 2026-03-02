@@ -1,31 +1,19 @@
 """
-Google Cloud Vision API v1 — Multilingual OCR.
-Uses DOCUMENT_TEXT_DETECTION with language hints for non-Latin scripts
-(Hindi, Urdu, Arabic, etc.).
+Google Cloud Vision SDK — Multilingual OCR.
+Uses DOCUMENT_TEXT_DETECTION with language hints for non-Latin scripts.
+Requires GOOGLE_APPLICATION_CREDENTIALS set in the environment.
 """
 
 import io
 import re
-import base64
-import requests
 from PIL import Image
 from typing import Tuple, List
-from config import config
 from utils.retry_utils import retry_with_backoff
 from utils.logger import get_logger
 
 logger = get_logger("multilingual_ocr")
 
-_VISION_URL = "https://vision.googleapis.com/v1/images:annotate"
-
-# BCP-47 language hints passed to Vision API for non-Latin content
 _MULTILINGUAL_HINTS = ["hi", "ur", "ar", "fa", "bn", "ta", "te", "mr", "gu", "pa", "en"]
-
-
-def _pil_to_b64(img: Image.Image) -> str:
-    buf = io.BytesIO()
-    img.save(buf, format="PNG")
-    return base64.b64encode(buf.getvalue()).decode("utf-8")
 
 
 def requires_multilingual_ocr(text: str) -> bool:
@@ -46,8 +34,8 @@ def requires_multilingual_ocr(text: str) -> bool:
 @retry_with_backoff(max_retries=3, base_delay=2.0, rate_limit=True)
 def extract_multilingual_text(img: Image.Image) -> Tuple[str, float]:
     """
-    Extract multilingual text (Hindi, Urdu, Arabic, etc.) using
-    Google Cloud Vision API v1 DOCUMENT_TEXT_DETECTION with language hints.
+    Extract multilingual text using Google Cloud Vision SDK
+    DOCUMENT_TEXT_DETECTION with language hints.
 
     Args:
         img: PIL Image containing text.
@@ -56,51 +44,37 @@ def extract_multilingual_text(img: Image.Image) -> Tuple[str, float]:
         Tuple of (extracted_text, confidence_score).
     """
     try:
-        payload = {
-            "requests": [
-                {
-                    "image": {"content": _pil_to_b64(img)},
-                    "features": [
-                        {"type": "DOCUMENT_TEXT_DETECTION", "maxResults": 1}
-                    ],
-                    "imageContext": {
-                        "languageHints": _MULTILINGUAL_HINTS
-                    },
-                }
-            ]
-        }
+        from google.cloud import vision
+        client = vision.ImageAnnotatorClient()
 
-        resp = requests.post(
-            _VISION_URL,
-            params={"key": config.GOOGLE_VISION_API_KEY},
-            json=payload,
-            timeout=30,
+        buf = io.BytesIO()
+        img.save(buf, format="PNG")
+        vision_img = vision.Image(content=buf.getvalue())
+
+        image_context = vision.ImageContext(language_hints=_MULTILINGUAL_HINTS)
+
+        response = client.document_text_detection(
+            image=vision_img,
+            image_context=image_context
         )
-        resp.raise_for_status()
-        data = resp.json()
 
-        response = data.get("responses", [{}])[0]
-
-        if "error" in response:
-            logger.error(f"Vision API error: {response['error']}")
+        if response.error.message:
+            logger.error(f"Vision API error: {response.error.message}")
             return "", 0.0
 
-        full_text = response.get("fullTextAnnotation", {}).get("text", "").strip()
+        full_text = response.full_text_annotation.text.strip()
 
-        # Collect detected languages from pages
+        # Collect detected languages and confidences from pages
         detected_langs: List[str] = []
         confidences = []
-        for page in response.get("fullTextAnnotation", {}).get("pages", []):
-            for lang in page.get("property", {}).get("detectedLanguages", []):
-                code = lang.get("languageCode", "")
-                if code:
-                    detected_langs.append(code)
-            for block in page.get("blocks", []):
-                for para in block.get("paragraphs", []):
-                    for word in para.get("words", []):
-                        c = word.get("confidence", None)
-                        if c is not None:
-                            confidences.append(c)
+        for page in response.full_text_annotation.pages:
+            for lang in page.property.detected_languages:
+                if lang.language_code:
+                    detected_langs.append(lang.language_code)
+            for block in page.blocks:
+                for para in block.paragraphs:
+                    for word in para.words:
+                        confidences.append(word.confidence)
 
         avg_conf = (sum(confidences) / len(confidences)) if confidences else (0.85 if full_text else 0.0)
         logger.debug(f"Multilingual OCR: {len(full_text)} chars, langs={detected_langs}, confidence={avg_conf:.3f}")

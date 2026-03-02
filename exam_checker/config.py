@@ -33,7 +33,7 @@ class Config:
 
         # --- API Keys ---
         self.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
-        self.GOOGLE_VISION_API_KEY = os.getenv("GOOGLE_VISION_API_KEY", "")
+        self.GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "")
 
         # --- Database ---
         db_default = str(Path(__file__).parent / "exam_checker.db")
@@ -81,8 +81,8 @@ class Config:
         errors = []
         if not self.OPENAI_API_KEY:
             errors.append("OPENAI_API_KEY is not set")
-        if not self.GOOGLE_VISION_API_KEY:
-            errors.append("GOOGLE_VISION_API_KEY is not set")
+        if not self.GOOGLE_APPLICATION_CREDENTIALS:
+            errors.append("GOOGLE_APPLICATION_CREDENTIALS is not set")
         if errors:
             raise ValueError("Configuration errors:\n" + "\n".join(f"  - {e}" for e in errors))
 
@@ -92,7 +92,7 @@ class Config:
         print("  Hybrid AI Exam Checker — Configuration")
         print("=" * 60)
         print(f"  OpenAI API Key:       {'***' + self.OPENAI_API_KEY[-4:] if self.OPENAI_API_KEY else 'NOT SET'}")
-        print(f"  Vision API Key:      {'***' + self.GOOGLE_VISION_API_KEY[-4:] if self.GOOGLE_VISION_API_KEY else 'NOT SET'}")
+        print(f"  Vision JSON Auth:    {self.GOOGLE_APPLICATION_CREDENTIALS if self.GOOGLE_APPLICATION_CREDENTIALS else 'NOT SET'}")
         print(f"  Eval Model:          {self.OPENAI_EVAL_MODEL}")
         print(f"  Embedding Model:     {self.OPENAI_EMBEDDING_MODEL}")
         print(f"  Database:            {self.DATABASE_URL}")

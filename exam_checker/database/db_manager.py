@@ -50,24 +50,33 @@ class DatabaseManager:
 
     # --- Course CRUD ---
 
-    def create_course(self, name: str, code: str, department: str = "", semester: str = "") -> Course:
+    def create_course(self, name: str, code: str, department: str = "", semester: str = "") -> dict:
         with self.session_scope() as session:
             existing = session.query(Course).filter_by(code=code).first()
             if existing:
-                return existing
+                return {"id": existing.id, "name": existing.name, "code": existing.code,
+                        "department": existing.department, "semester": existing.semester}
             course = Course(name=name, code=code, department=department, semester=semester)
             session.add(course)
             session.flush()
-            course_id = course.id
-        return self.get_course(course_id)
+            return {"id": course.id, "name": course.name, "code": course.code,
+                    "department": course.department, "semester": course.semester}
 
-    def get_course(self, course_id: int) -> Optional[Course]:
+    def get_course(self, course_id: int) -> Optional[dict]:
         with self.session_scope() as session:
-            return session.query(Course).get(course_id)
+            c = session.query(Course).get(course_id)
+            if c is None:
+                return None
+            return {"id": c.id, "name": c.name, "code": c.code,
+                    "department": c.department, "semester": c.semester}
 
-    def get_course_by_code(self, code: str) -> Optional[Course]:
+    def get_course_by_code(self, code: str) -> Optional[dict]:
         with self.session_scope() as session:
-            return session.query(Course).filter_by(code=code).first()
+            c = session.query(Course).filter_by(code=code).first()
+            if c is None:
+                return None
+            return {"id": c.id, "name": c.name, "code": c.code,
+                    "department": c.department, "semester": c.semester}
 
     def get_all_courses(self) -> List[Dict]:
         with self.session_scope() as session:
@@ -95,7 +104,7 @@ class DatabaseManager:
         self, course_id: int, title: str, total_marks: float,
         answer_key_path: str = "", marks_per_question: List[float] = None,
         grade_boundaries: Dict = None,
-    ) -> Assessment:
+    ) -> dict:
         with self.session_scope() as session:
             assessment = Assessment(
                 course_id=course_id,
@@ -107,12 +116,21 @@ class DatabaseManager:
             )
             session.add(assessment)
             session.flush()
-            assessment_id = assessment.id
-        return self.get_assessment(assessment_id)
+            return {"id": assessment.id, "course_id": assessment.course_id,
+                    "title": assessment.title, "total_marks": assessment.total_marks,
+                    "answer_key_path": assessment.answer_key_path,
+                    "marks_per_question": assessment.marks_per_question,
+                    "grade_boundaries": assessment.grade_boundaries}
 
-    def get_assessment(self, assessment_id: int) -> Optional[Assessment]:
+    def get_assessment(self, assessment_id: int) -> Optional[dict]:
         with self.session_scope() as session:
-            return session.query(Assessment).get(assessment_id)
+            a = session.query(Assessment).get(assessment_id)
+            if a is None:
+                return None
+            return {"id": a.id, "course_id": a.course_id, "title": a.title,
+                    "total_marks": a.total_marks, "answer_key_path": a.answer_key_path,
+                    "marks_per_question": a.marks_per_question,
+                    "grade_boundaries": a.grade_boundaries}
 
     def get_assessments_by_course(self, course_id: int) -> List[Dict]:
         with self.session_scope() as session:
@@ -130,22 +148,29 @@ class DatabaseManager:
 
     # --- Student CRUD ---
 
-    def create_student(self, name: str, roll_number: str, course_id: int, email: str = "") -> Student:
+    def create_student(self, name: str, roll_number: str, course_id: int, email: str = "") -> dict:
         with self.session_scope() as session:
             existing = session.query(Student).filter_by(
                 roll_number=roll_number, course_id=course_id
             ).first()
             if existing:
-                return existing
+                return {"id": existing.id, "name": existing.name,
+                        "roll_number": existing.roll_number, "course_id": existing.course_id,
+                        "email": existing.email}
             student = Student(name=name, roll_number=roll_number, course_id=course_id, email=email)
             session.add(student)
             session.flush()
-            student_id = student.id
-        return self.get_student(student_id)
+            return {"id": student.id, "name": student.name,
+                    "roll_number": student.roll_number, "course_id": student.course_id,
+                    "email": student.email}
 
-    def get_student(self, student_id: int) -> Optional[Student]:
+    def get_student(self, student_id: int) -> Optional[dict]:
         with self.session_scope() as session:
-            return session.query(Student).get(student_id)
+            s = session.query(Student).get(student_id)
+            if s is None:
+                return None
+            return {"id": s.id, "name": s.name, "roll_number": s.roll_number,
+                    "course_id": s.course_id, "email": s.email}
 
     def get_students_by_course(self, course_id: int) -> List[Dict]:
         with self.session_scope() as session:
@@ -159,7 +184,7 @@ class DatabaseManager:
 
     def create_result(
         self, student_id: int, assessment_id: int, pdf_path: str = ""
-    ) -> Result:
+    ) -> dict:
         with self.session_scope() as session:
             result = Result(
                 student_id=student_id,
@@ -169,12 +194,21 @@ class DatabaseManager:
             )
             session.add(result)
             session.flush()
-            result_id = result.id
-        return self.get_result(result_id)
+            return {"id": result.id, "student_id": result.student_id,
+                    "assessment_id": result.assessment_id, "pdf_path": result.pdf_path,
+                    "processing_status": result.processing_status}
 
-    def get_result(self, result_id: int) -> Optional[Result]:
+    def get_result(self, result_id: int) -> Optional[dict]:
         with self.session_scope() as session:
-            return session.query(Result).get(result_id)
+            r = session.query(Result).get(result_id)
+            if r is None:
+                return None
+            return {"id": r.id, "student_id": r.student_id,
+                    "assessment_id": r.assessment_id, "pdf_path": r.pdf_path,
+                    "total_marks_obtained": r.total_marks_obtained,
+                    "total_marks_allocated": r.total_marks_allocated,
+                    "percentage": r.percentage, "grade": r.grade,
+                    "processing_status": r.processing_status}
 
     def update_result(
         self, result_id: int,

@@ -303,14 +303,17 @@ def _parse_from_folder_name(root: Path) -> ExamMetadata:
     folder_name = root.name.strip()
     tokens = [t for t in _FOLDER_SPLIT.split(folder_name) if t]
 
-    course_code = "COURSE"
+    course_code = None
     title_tokens = []
 
     for tok in tokens:
-        if _COURSE_CODE_RE.match(tok) and len(tok) >= 3:
-            course_code = tok.upper()
+        if course_code is None and _COURSE_CODE_RE.match(tok) and len(tok) >= 3:
+            course_code = tok.upper()   # take FIRST code-like token
         else:
             title_tokens.append(tok)
+
+    if course_code is None:
+        course_code = "COURSE"
 
     assessment_title = " ".join(title_tokens) if title_tokens else folder_name
     if not assessment_title:

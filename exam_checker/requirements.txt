@@ -1,6 +1,6 @@
 # Core AI / Cloud APIs
 openai>=1.12.0
-google-generativeai>=0.4.1
+google-cloud-vision>=3.6.0
 protobuf==3.20.3
 
 # Math & Chemistry
