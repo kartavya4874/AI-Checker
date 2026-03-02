@@ -2,19 +2,16 @@
 FastAPI web portal for the Hybrid AI Exam Checker.
 """
 
-import os
 from pathlib import Path
-from typing import List, Optional
-from fastapi import FastAPI, Request, File, UploadFile, Form, BackgroundTasks, HTTPException
+from fastapi import FastAPI, Request, Form, BackgroundTasks, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
 
 from config import config
 from database.db_manager import DatabaseManager
 from processing.course_processor import CourseProcessor
-from utils.folder_scanner import scan_exam_folder, describe_scan
+from utils.folder_scanner import scan_exam_folder
 
 # Setup
 app = FastAPI(title="Hybrid AI Exam Checker Portal")
@@ -34,6 +31,11 @@ app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 # Database
 db = DatabaseManager()
 db.init_db()
+
+
+def create_app() -> FastAPI:
+    """Application factory used by CLI and ASGI servers."""
+    return app
 
 
 # --- Routes ---
@@ -85,7 +87,7 @@ async def assessment_detail(request: Request, assessment_id: int):
     if not assessment:
         raise HTTPException(status_code=404, detail="Assessment not found")
         
-    course = db.get_course(assessment.course_id)
+    course = db.get_course(assessment["course_id"])
     results = db.get_results_by_assessment(assessment_id)
     stats = db.get_assessment_stats(assessment_id)
     
@@ -105,9 +107,9 @@ async def student_detail(request: Request, result_id: int):
     if not result:
         raise HTTPException(status_code=404, detail="Result not found")
         
-    student = db.get_student(result.student_id)
-    assessment = db.get_assessment(result.assessment_id)
-    course = db.get_course(student.course_id)
+    student = db.get_student(result["student_id"])
+    assessment = db.get_assessment(result["assessment_id"])
+    course = db.get_course(student["course_id"])
     
     question_results = db.get_question_results(result_id)
     
