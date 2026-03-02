@@ -49,7 +49,8 @@ class ExamCheckerGUI(tk.Tk):
         # Build UI
         self._create_menu()
         self._create_main_layout()
-        self._refresh_courses()
+        # Note: courses are now auto-created from folder metadata,
+        # no need to populate a dropdown at startup.
 
     def _setup_styles(self):
         """Configure ttk styles for dark theme."""
@@ -139,52 +140,78 @@ class ExamCheckerGUI(tk.Tk):
         main = ttk.Frame(self.setup_tab)
         main.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # Left panel: Course/Assessment setup
-        left = ttk.LabelFrame(main, text="Course & Assessment", padding=10)
+        # Left panel: Exam folder & auto-detected details
+        left = ttk.LabelFrame(main, text="Exam Folder & Course", padding=10)
         left.pack(side="left", fill="both", expand=True, padx=(0, 5))
 
-        # Course selection
-        ttk.Label(left, text="Course:").pack(anchor="w")
-        course_frame = ttk.Frame(left)
-        course_frame.pack(fill="x", pady=(0, 8))
-        self.course_combo = ttk.Combobox(course_frame, state="readonly", width=25)
-        self.course_combo.pack(side="left", fill="x", expand=True)
-        self.course_combo.bind("<<ComboboxSelected>>", self._on_course_selected)
-        ttk.Button(course_frame, text="+", width=3, command=self._add_course).pack(side="right", padx=(5, 0))
+        # ── Single exam folder ────────────────────────────────────
+        ttk.Label(
+            left,
+            text="Exam Folder Path:",
+            font=("Segoe UI", 10, "bold"),
+        ).pack(anchor="w", pady=(4, 0))
 
-        # Assessment title
-        ttk.Label(left, text="Assessment Title:").pack(anchor="w")
-        self.assessment_var = tk.StringVar()
-        ttk.Entry(left, textvariable=self.assessment_var).pack(fill="x", pady=(0, 8))
+        folder_frame = ttk.Frame(left)
+        folder_frame.pack(fill="x", pady=(2, 4))
+        self.folder_var = tk.StringVar()
+        folder_entry = ttk.Entry(folder_frame, textvariable=self.folder_var)
+        folder_entry.pack(side="left", fill="x", expand=True)
+        ttk.Button(folder_frame, text="Browse", command=self._browse_exam_folder).pack(
+            side="right", padx=(5, 0)
+        )
 
-        # Answer key
-        ttk.Label(left, text="Answer Key PDF:").pack(anchor="w")
-        key_frame = ttk.Frame(left)
-        key_frame.pack(fill="x", pady=(0, 8))
-        self.key_label = ttk.Label(key_frame, text="No file selected", wraplength=250)
-        self.key_label.pack(side="left", fill="x", expand=True)
-        ttk.Button(key_frame, text="Browse", command=self._browse_answer_key).pack(side="right")
+        # Info hint
+        ttk.Label(
+            left,
+            text=(
+                "📂  Name your files:\n"
+                "  • answer_key.pdf  (must include 'key' or 'answer')\n"
+                "  • question_paper.pdf  (optional)\n"
+                "  • All other PDFs → student sheets\n"
+                "  • Add course_info.txt for exact course details"
+            ),
+            font=("Segoe UI", 8),
+            foreground="#888888",
+            justify="left",
+            wraplength=290,
+        ).pack(anchor="w", pady=(0, 6))
 
-        # Marks per question
-        ttk.Label(left, text="Marks per Question (comma-separated):").pack(anchor="w")
-        self.marks_var = tk.StringVar(value="10,10,10,10,10")
-        ttk.Entry(left, textvariable=self.marks_var).pack(fill="x", pady=(0, 8))
+        # ── Auto-detected course info (editable override) ─────────
+        ttk.Label(left, text="Auto-Detected Course Code:",
+                  font=("Segoe UI", 9)).pack(anchor="w")
+        self.course_code_var = tk.StringVar(value="")
+        ttk.Entry(left, textvariable=self.course_code_var,
+                  font=("Segoe UI", 9)).pack(fill="x", pady=(0, 6))
 
-        # Student PDFs
-        ttk.Label(left, text="Student Answer Sheets:").pack(anchor="w")
-        student_frame = ttk.Frame(left)
-        student_frame.pack(fill="x", pady=(0, 8))
-        self.student_label = ttk.Label(student_frame, text="0 files selected")
-        self.student_label.pack(side="left", fill="x", expand=True)
-        ttk.Button(student_frame, text="Browse", command=self._browse_students).pack(side="right")
+        ttk.Label(left, text="Auto-Detected Assessment Title:",
+                  font=("Segoe UI", 9)).pack(anchor="w")
+        self.assessment_var = tk.StringVar(value="")
+        ttk.Entry(left, textvariable=self.assessment_var,
+                  font=("Segoe UI", 9)).pack(fill="x", pady=(0, 4))
 
-        # Teacher samples (optional)
-        ttk.Label(left, text="Teacher Samples (optional):").pack(anchor="w")
-        sample_frame = ttk.Frame(left)
-        sample_frame.pack(fill="x", pady=(0, 8))
-        self.sample_label = ttk.Label(sample_frame, text="No samples selected")
-        self.sample_label.pack(side="left", fill="x", expand=True)
-        ttk.Button(sample_frame, text="Browse", command=self._browse_samples).pack(side="right")
+        ttk.Label(
+            left,
+            text="ℹ️  Edit the fields above to override auto-detected values",
+            font=("Segoe UI", 8, "italic"),
+            foreground="#58a6ff",
+            wraplength=290,
+        ).pack(anchor="w", pady=(0, 6))
+
+        # Scan preview label
+        self.scan_preview_var = tk.StringVar(value="")
+        self.scan_preview_label = ttk.Label(
+            left,
+            textvariable=self.scan_preview_var,
+            font=("Consolas", 8),
+            foreground="#aaaaaa",
+            wraplength=290,
+            justify="left",
+        )
+        self.scan_preview_label.pack(anchor="w", pady=(0, 8))
+
+        # Bind folder changes to live preview + auto-fill
+        self.folder_var.trace_add("write", self._on_folder_changed)
+
 
         # Process button
         self.process_btn = ttk.Button(left, text="⚡ Process All", style="Accent.TButton", command=self._start_processing)
@@ -289,17 +316,12 @@ class ExamCheckerGUI(tk.Tk):
     # ==================== Event Handlers ====================
 
     def _refresh_courses(self):
-        """Refresh course list."""
-        courses = self.db.get_all_courses()
-        values = [f"{c['code']} — {c['name']}" for c in courses]
-        self.course_combo["values"] = values
-        self._courses_data = courses
+        """Refresh cached course list (no combo to update — courses are auto-detected)."""
+        self._courses_data = self.db.get_all_courses()
 
     def _on_course_selected(self, event=None):
-        idx = self.course_combo.current()
-        if idx >= 0 and idx < len(self._courses_data):
-            self.current_course_id = self._courses_data[idx]["id"]
-            self._refresh_assessments_combo()
+        """Legacy stub — course selection is now automatic."""
+        pass
 
     def _add_course(self):
         """Add a new course dialog."""
@@ -330,23 +352,50 @@ class ExamCheckerGUI(tk.Tk):
 
         ttk.Button(dialog, text="Save", style="Accent.TButton", command=save).pack(pady=20)
 
+    def _browse_exam_folder(self):
+        """Browse for the root exam folder."""
+        folder = filedialog.askdirectory(title="Select Exam Folder")
+        if folder:
+            self.folder_var.set(folder)
+
+    def _on_folder_changed(self, *_):
+        """Live-preview folder scan + auto-fill course/assessment fields."""
+        folder = self.folder_var.get().strip()
+        if not folder:
+            self.scan_preview_var.set("")
+            return
+        from utils.folder_scanner import scan_exam_folder, describe_scan, parse_exam_metadata
+        from pathlib import Path
+        p = Path(folder)
+        if not p.is_dir():
+            self.scan_preview_var.set("⚠ Folder not found")
+            return
+
+        # Auto-fill course details
+        meta = parse_exam_metadata(folder)
+        if not self.course_code_var.get():  # only auto-fill if not already set
+            self.course_code_var.set(meta.course_code)
+        if not self.assessment_var.get():   # only auto-fill if not already set
+            self.assessment_var.set(meta.assessment_title)
+
+        # Live scan preview
+        scan = scan_exam_folder(folder)
+        preview = (
+            f"Course Code:  {meta.course_code}  (from {meta.source})\n"
+            f"Assessment:   {meta.assessment_title}\n"
+            + describe_scan(scan)
+        )
+        self.scan_preview_var.set(preview)
+
+    # Legacy stubs kept for any existing code references
     def _browse_answer_key(self):
-        path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
-        if path:
-            self.answer_key_path = path
-            self.key_label.config(text=Path(path).name)
+        pass
 
     def _browse_students(self):
-        paths = filedialog.askopenfilenames(filetypes=[("PDF files", "*.pdf")])
-        if paths:
-            self.student_files = list(paths)
-            self.student_label.config(text=f"{len(self.student_files)} files selected")
+        pass
 
     def _browse_samples(self):
-        paths = filedialog.askopenfilenames(filetypes=[("PDF files", "*.pdf")])
-        if paths:
-            self.sample_files = list(paths)
-            self.sample_label.config(text=f"{len(self.sample_files)} samples selected")
+        pass
 
     def _start_processing(self):
         """Start processing in a background thread."""
@@ -355,23 +404,34 @@ class ExamCheckerGUI(tk.Tk):
             return
 
         # Validate inputs
-        if not self.answer_key_path:
-            messagebox.showerror("Error", "Please select an answer key PDF")
+        folder = self.folder_var.get().strip()
+        if not folder:
+            messagebox.showerror("Error", "Please select an exam folder")
             return
-        if not self.student_files:
-            messagebox.showerror("Error", "Please select student answer sheets")
-            return
-        if not self.assessment_var.get():
-            messagebox.showerror("Error", "Please enter an assessment title")
+        from pathlib import Path as _Path
+        if not _Path(folder).is_dir():
+            messagebox.showerror("Error", f"Folder not found: {folder}")
             return
 
-        # Parse marks
-        try:
-            marks_str = self.marks_var.get().strip()
-            self.marks_per_question = [float(m.strip()) for m in marks_str.split(",")]
-        except ValueError:
-            messagebox.showerror("Error", "Invalid marks format. Use comma-separated numbers.")
+        # Quick scan to check folder has required files
+        from utils.folder_scanner import scan_exam_folder
+        scan = scan_exam_folder(folder)
+        if not scan.answer_key_path:
+            messagebox.showerror(
+                "Folder Error",
+                "No answer key found in folder.\n\n"
+                "Rename the answer key file to include 'answer_key', 'key', or 'solution'."
+            )
             return
+        if not scan.student_paths:
+            messagebox.showerror(
+                "Folder Error",
+                "No student answer sheets found in folder.\n\n"
+                "Place student PDFs (without 'key'/'question' in their names) in the folder."
+            )
+            return
+
+        # Marks are auto-detected from answer key; no manual input needed
 
         # Validate API keys
         try:
@@ -391,53 +451,38 @@ class ExamCheckerGUI(tk.Tk):
     def _process_thread(self):
         """Background processing thread."""
         try:
-            # Create course if needed
-            course_code = "COURSE"
-            if self.course_combo.get():
-                course_code = self.course_combo.get().split(" — ")[0]
-            else:
-                course_code = "COURSE001"
+            folder = self.folder_var.get().strip()
 
-            # Copy student files to a temp directory
-            import shutil
-            temp_students = config.TEMP_DIR / "students"
-            temp_students.mkdir(parents=True, exist_ok=True)
-
-            for f in self.student_files:
-                shutil.copy2(f, temp_students / Path(f).name)
-
-            # Copy samples if any
-            samples_dir = None
-            if self.sample_files:
-                samples_dir = str(config.TEMP_DIR / "samples")
-                Path(samples_dir).mkdir(parents=True, exist_ok=True)
-                for f in self.sample_files:
-                    shutil.copy2(f, Path(samples_dir) / Path(f).name)
-
-            total = len(self.student_files)
+            # Read the (possibly user-edited) auto-filled fields as overrides.
+            # If left blank, process_from_folder() auto-detects from folder name/metadata.
+            course_code = self.course_code_var.get().strip() or None
+            assessment_title = self.assessment_var.get().strip() or None
 
             def progress_cb(msg):
                 self._log(msg)
-                # Update progress bar
                 if "Processing student" in msg:
                     try:
                         parts = msg.split("Processing student ")[1].split("/")
                         current = int(parts[0])
+                        total = int(parts[1].split(":")[0])
                         self.progress_var.set((current / total) * 100)
                         self.progress_label.config(text=f"Student {current}/{total}")
                     except (IndexError, ValueError):
                         pass
 
             processor = CourseProcessor(self.db)
-            processor.process(
+            summary = processor.process_from_folder(
+                root_folder=folder,
                 course_code=course_code,
-                assessment_title=self.assessment_var.get(),
-                answer_key_path=self.answer_key_path,
-                students_dir=str(temp_students),
-                marks_per_question=self.marks_per_question,
-                samples_dir=samples_dir,
+                assessment_title=assessment_title,
                 progress_callback=progress_cb,
             )
+
+
+            if summary.get("errors"):
+                self._log("\n⚠ Warnings/Errors:")
+                for e in summary["errors"]:
+                    self._log(f"  {e}")
 
             self.progress_var.set(100)
             self._log("\n✓ Processing complete!")

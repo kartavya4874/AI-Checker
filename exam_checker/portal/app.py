@@ -14,6 +14,7 @@ from pydantic import BaseModel
 from config import config
 from database.db_manager import DatabaseManager
 from processing.course_processor import CourseProcessor
+from utils.folder_scanner import scan_exam_folder, describe_scan
 
 # Setup
 app = FastAPI(title="Hybrid AI Exam Checker Portal")
@@ -133,82 +134,43 @@ async def upload_page(request: Request):
 @app.post("/start_processing")
 async def start_processing(
     background_tasks: BackgroundTasks,
-    course_id: int = Form(...),
-    assessment_title: str = Form(...),
-    marks_per_question: str = Form(...),
-    answer_key: UploadFile = File(...),
-    student_files: List[UploadFile] = File(...),
-    sample_files: List[UploadFile] = File(None),
+    exam_folder: str = Form(...),
 ):
-    """Start the exam checking pipeline."""
-    # Setup temp dirs
-    upload_dir = config.TEMP_DIR / "uploads"
-    upload_dir.mkdir(parents=True, exist_ok=True)
+    """Start the exam checking pipeline from a single folder path.
     
-    # Save answer key
-    key_path = upload_dir / f"key_{answer_key.filename}"
-    with open(key_path, "wb") as f:
-        f.write(await answer_key.read())
-        
-    # Save student files
-    student_dir = upload_dir / "students"
-    student_dir.mkdir(exist_ok=True)
-    for s_file in student_files:
-        with open(student_dir / s_file.filename, "wb") as f:
-            f.write(await s_file.read())
-            
-    # Save samples if any
-    sample_dir = None
-    if sample_files and sample_files[0].filename:
-        sample_dir = upload_dir / "samples"
-        sample_dir.mkdir(exist_ok=True)
-        for sam_file in sample_files:
-            with open(sample_dir / sam_file.filename, "wb") as f:
-                f.write(await sam_file.read())
-                
-    # Parse marks
-    try:
-        marks_list = [float(m.strip()) for m in marks_per_question.split(",")]
-    except ValueError:
-        raise HTTPException(status_code=400, detail="Invalid marks format")
-        
-    # Get course details
-    course = db.get_course(course_id)
-    if not course:
-        raise HTTPException(status_code=404, detail="Course not found")
-        
-    # Start task
-    background_tasks.add_task(
-        run_processing_task,
-        course.code,
-        assessment_title,
-        str(key_path),
-        str(student_dir),
-        marks_list,
-        str(sample_dir) if sample_dir else None
-    )
-    
+    Course code, course name, and assessment title are all auto-detected
+    from the folder name or a course_info.txt file inside it.
+    """
+    # Validate folder
+    folder_path = Path(exam_folder.strip())
+    if not folder_path.exists() or not folder_path.is_dir():
+        raise HTTPException(status_code=400, detail=f"Folder not found: {exam_folder}")
+
+    # Quick scan to validate contents
+    scan = scan_exam_folder(str(folder_path))
+    if not scan.answer_key_path:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "No answer key PDF found in folder. "
+                "Rename a file to include 'answer_key', 'key', or 'solution'."
+            ),
+        )
+    if not scan.student_paths:
+        raise HTTPException(
+            status_code=400,
+            detail="No student answer sheets found in folder.",
+        )
+
+    # Course details auto-detected inside process_from_folder()
+    background_tasks.add_task(run_processing_task, str(folder_path))
     return RedirectResponse(url="/", status_code=303)
 
 
-def run_processing_task(
-    course_code: str,
-    assessment_title: str,
-    answer_key_path: str,
-    students_dir: str,
-    marks_per_question: List[float],
-    samples_dir: Optional[str],
-):
-    """Background task to run course processor."""
+def run_processing_task(exam_folder: str):
+    """Background task: process exam from a single root folder."""
     processor = CourseProcessor(db)
-    processor.process(
-        course_code=course_code,
-        assessment_title=assessment_title,
-        answer_key_path=answer_key_path,
-        students_dir=students_dir,
-        marks_per_question=marks_per_question,
-        samples_dir=samples_dir,
-    )
+    processor.process_from_folder(root_folder=exam_folder)
 
 
 @app.get("/export/{assessment_id}/csv")

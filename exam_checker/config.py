@@ -33,7 +33,7 @@ class Config:
 
         # --- API Keys ---
         self.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
-        self.GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+        self.GOOGLE_VISION_API_KEY = os.getenv("GOOGLE_VISION_API_KEY", "")
 
         # --- Database ---
         db_default = str(Path(__file__).parent / "exam_checker.db")
@@ -76,19 +76,13 @@ class Config:
         self.PORTAL_HOST = os.getenv("PORTAL_HOST", "127.0.0.1")
         self.PORTAL_PORT = int(os.getenv("PORTAL_PORT", "8000"))
 
-        # Configure Gemini API
-        if self.GEMINI_API_KEY:
-            os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
-            import google.generativeai as genai
-            genai.configure(api_key=self.GEMINI_API_KEY)
-
     def validate(self):
         """Validate that required configuration is present."""
         errors = []
         if not self.OPENAI_API_KEY:
             errors.append("OPENAI_API_KEY is not set")
-        if not self.GEMINI_API_KEY:
-            errors.append("GEMINI_API_KEY is not set")
+        if not self.GOOGLE_VISION_API_KEY:
+            errors.append("GOOGLE_VISION_API_KEY is not set")
         if errors:
             raise ValueError("Configuration errors:\n" + "\n".join(f"  - {e}" for e in errors))
 
@@ -97,8 +91,8 @@ class Config:
         print("=" * 60)
         print("  Hybrid AI Exam Checker — Configuration")
         print("=" * 60)
-        print(f"  OpenAI API Key:      {'***' + self.OPENAI_API_KEY[-4:] if self.OPENAI_API_KEY else 'NOT SET'}")
-        print(f"  Gemini API Key:      {'***' + self.GEMINI_API_KEY[-4:] if self.GEMINI_API_KEY else 'NOT SET'}")
+        print(f"  OpenAI API Key:       {'***' + self.OPENAI_API_KEY[-4:] if self.OPENAI_API_KEY else 'NOT SET'}")
+        print(f"  Vision API Key:      {'***' + self.GOOGLE_VISION_API_KEY[-4:] if self.GOOGLE_VISION_API_KEY else 'NOT SET'}")
         print(f"  Eval Model:          {self.OPENAI_EVAL_MODEL}")
         print(f"  Embedding Model:     {self.OPENAI_EMBEDDING_MODEL}")
         print(f"  Database:            {self.DATABASE_URL}")

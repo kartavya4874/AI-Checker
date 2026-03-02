@@ -1,6 +1,7 @@
 """
 OCR Router — routes image to best OCR result.
-Blank check first, then Vision API, language detection for multilingual.
+Blank check first, then Vision API (handwriting mode handles both printed
+and handwritten). Language detection for non-Latin scripts.
 """
 
 from PIL import Image
@@ -17,8 +18,8 @@ def route_ocr(img: Image.Image) -> Dict[str, Any]:
     """
     Route image through OCR pipeline.
     1. Check if blank → return empty
-    2. Try standard Vision API (handwriting mode)
-    3. If non-Latin detected → try multilingual with hints
+    2. Google Vision API DOCUMENT_TEXT_DETECTION (handles handwriting + print)
+    3. If non-Latin script detected → re-run with multilingual hints
     4. Return best result
 
     Args:
@@ -42,37 +43,36 @@ def route_ocr(img: Image.Image) -> Dict[str, Any]:
         logger.info("Region detected as blank")
         return result
 
-    # Step 2: Primary OCR — handwriting mode (works for both handwritten and printed)
+    # Step 2: Primary OCR — DOCUMENT_TEXT_DETECTION (works for both
+    # handwritten and printed text)
     try:
         text, confidence = extract_handwritten_text(img)
         result["text"] = text
         result["confidence"] = confidence
-        result["engine"] = "google_vision_handwriting"
+        result["engine"] = "vision_api_document"
     except Exception as e:
         logger.warning(f"Primary OCR failed: {e}")
 
-    # Step 3: Check for non-Latin scripts
+    # Step 3: Check for non-Latin scripts → re-run with language hints
     if result["text"] and requires_multilingual_ocr(result["text"]):
         logger.info("Non-Latin script detected, trying multilingual OCR")
         try:
-            ml_text, ml_conf, ml_langs = extract_multilingual_text(img)
+            ml_text, ml_conf = extract_multilingual_text(img)
             if ml_conf > result["confidence"] or len(ml_text) > len(result["text"]):
                 result["text"] = ml_text
                 result["confidence"] = ml_conf
-                result["engine"] = "google_vision_multilingual"
-                result["languages"] = ml_langs if ml_langs else ["en"]
+                result["engine"] = "vision_api_multilingual"
         except Exception as e:
             logger.warning(f"Multilingual OCR failed: {e}")
 
-    # Step 4: If no text and not blank, try multilingual as fallback
+    # Step 4: Fallback — if primary returned nothing, try multilingual
     if not result["text"]:
         try:
-            text, confidence, langs = extract_multilingual_text(img)
+            text, confidence = extract_multilingual_text(img)
             if text:
                 result["text"] = text
                 result["confidence"] = confidence
-                result["engine"] = "google_vision_multilingual_fallback"
-                result["languages"] = langs if langs else ["en"]
+                result["engine"] = "vision_api_multilingual_fallback"
         except Exception as e:
             logger.warning(f"Fallback OCR failed: {e}")
 

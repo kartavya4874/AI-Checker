@@ -5,86 +5,75 @@
 {% block content %}
 <div class="mb-8">
     <h1 class="text-3xl font-bold text-white">Process Exams</h1>
-    <p class="text-gray-400 mt-2">Upload answer key and student answer sheets to begin AI grading.</p>
+    <p class="text-gray-400 mt-2">Just provide the exam folder path — course details, marks, and everything else are
+        auto-detected.</p>
 </div>
 
-<div class="max-w-4xl max-w-full">
-    <form action="/start_processing" method="post" enctype="multipart/form-data" class="card p-8 space-y-8">
+<div class="max-w-3xl max-w-full">
+    <form action="/start_processing" method="post" class="card p-8 space-y-8">
 
-        <!-- Course & Assessment -->
+        <!-- Exam Folder -->
         <div class="space-y-4">
-            <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2">1. Assessment Details</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-300 mb-2">Course</label>
-                    <select name="course_id" required
-                        class="w-full bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-2 text-white focus:outline-none focus:border-[#58a6ff]">
-                        <option value="">-- Select Course --</option>
-                        {% for c in courses %}
-                        <option value="{{ c.id }}" {% if request.query_params.get('course')==c.id|string %}selected{%
-                            endif %}>
-                            {{ c.code }} — {{ c.name }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-gray-300 mb-2">Assessment Title</label>
-                    <input type="text" name="assessment_title" required placeholder="e.g., Midterm 1"
-                        class="w-full bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-2 text-white focus:outline-none focus:border-[#58a6ff]">
-                </div>
-            </div>
-        </div>
-
-        <!-- Document Uploads -->
-        <div class="space-y-4 border-t border-gray-800 pt-6">
-            <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2">2. Upload Documents</h2>
-
-            <div class="grid grid-cols-1 gap-6">
-                <!-- Answer Key -->
-                <div class="card bg-[#0d1117] border-dashed p-6">
-                    <label class="block text-sm font-semibold text-white mb-2">Answer Key (PDF)</label>
-                    <p class="text-xs text-gray-400 mb-4">Upload the expected solutions. The AI will segment this into
-                        questions automatically.</p>
-                    <input type="file" name="answer_key" accept=".pdf" required
-                        class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#21262d] file:text-white hover:file:bg-[#30363d]">
-                </div>
-
-                <!-- Student Scripts -->
-                <div class="card bg-[#0d1117] border-dashed border-[#58a6ff] p-6 lg:bg-blue-900/10">
-                    <label class="block text-sm font-semibold text-[#58a6ff] mb-2">Student Answer Sheets (PDFs)</label>
-                    <p class="text-xs text-gray-400 mb-4">Select all student answer sheets to process. Filenames should
-                        ideally contain roll numbers.</p>
-                    <input type="file" name="student_files" accept=".pdf" multiple required
-                        class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#58a6ff] file:text-white hover:file:bg-[#318bf8]">
-                </div>
-            </div>
-        </div>
-
-        <!-- Grading Rules -->
-        <div class="space-y-4 border-t border-gray-800 pt-6">
-            <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2">3. Grading Rules</h2>
+            <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2">Exam Folder Path</h2>
 
             <div>
-                <label class="block text-sm font-semibold text-gray-300 mb-2">Marks Allocation</label>
-                <p class="text-xs text-gray-400 mb-2">Comma-separated marks per question. (e.g., 10, 5.5, 20)</p>
-                <input type="text" name="marks_per_question" required value="10, 10, 10, 10, 10"
+                <label class="block text-sm font-semibold text-gray-300 mb-2">Root Folder Path</label>
+                <input type="text" name="exam_folder" required
+                    placeholder="e.g., C:\Exams\CS101_Midterm  or  /home/user/exams/cs101"
                     class="w-full bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-2 text-white font-mono focus:outline-none focus:border-[#58a6ff]">
+                <p class="text-xs text-gray-500 mt-1">Enter the full path to the folder on this server/machine.</p>
             </div>
+        </div>
 
-            <div class="card bg-[#0d1117] p-6 mt-4 opacity-75">
-                <label class="block text-sm font-semibold text-gray-300 mb-2">Teacher Samples (Optional Few-Shot
-                    Context)</label>
-                <p class="text-xs text-gray-400 mb-4">Upload previously marked papers to tech the AI your specific
-                    grading style.</p>
-                <input type="file" name="sample_files" accept=".pdf" multiple
-                    class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#21262d] file:text-white hover:file:bg-[#30363d]">
+        <!-- What gets auto-detected -->
+        <div class="border-t border-gray-800 pt-6 space-y-4">
+            <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2">What Gets Auto-Detected</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <!-- Course & Assessment -->
+                <div class="border border-purple-700/40 bg-purple-900/10 rounded p-4 space-y-2">
+                    <p class="text-purple-300 font-semibold">🏫 Course &amp; Assessment</p>
+                    <p class="text-xs text-gray-400">Parsed from your <strong class="text-white">folder name</strong>:
+                    </p>
+                    <code class="block text-xs text-purple-300 bg-[#0d1117] p-2 rounded">CS101_Midterm/</code>
+                    <p class="text-xs text-gray-400">→ Code: <strong>CS101</strong>, Title: <strong>Midterm</strong></p>
+                    <p class="text-xs text-gray-500 mt-2">Or add a <code class="text-gray-300">course_info.txt</code>
+                        inside the folder:</p>
+                    <pre class="text-xs text-gray-400 bg-[#0d1117] p-2 rounded leading-relaxed">Course Code: CS101
+Course Name: Computer Science
+Assessment: Midterm Exam
+Department: Engineering</pre>
+                </div>
+
+                <!-- Files -->
+                <div class="space-y-3">
+                    <div class="border border-yellow-700/40 bg-yellow-900/10 rounded p-3">
+                        <p class="text-yellow-300 font-semibold text-xs mb-1">🗝 Answer Key</p>
+                        <p class="text-xs text-gray-400">Filename with <code class="text-yellow-400">answer_key</code>,
+                            <code class="text-yellow-400">key</code>, or <code class="text-yellow-400">solution</code>
+                        </p>
+                    </div>
+                    <div class="border border-blue-700/40 bg-blue-900/10 rounded p-3">
+                        <p class="text-blue-300 font-semibold text-xs mb-1">📋 Question Paper</p>
+                        <p class="text-xs text-gray-400">Filename with <code class="text-blue-400">question</code>,
+                            <code class="text-blue-400">qp</code>, or <code class="text-blue-400">paper</code> <span
+                                class="text-gray-500">(optional)</span></p>
+                    </div>
+                    <div class="border border-green-700/40 bg-green-900/10 rounded p-3">
+                        <p class="text-green-300 font-semibold text-xs mb-1">🧑‍🎓 Student Sheets</p>
+                        <p class="text-xs text-gray-400">All other PDFs are student answer sheets</p>
+                    </div>
+                    <div class="flex items-center gap-2 pt-1">
+                        <span class="text-blue-400 text-sm">✨</span>
+                        <p class="text-xs text-gray-400">Marks are <strong class="text-blue-300">auto-extracted</strong>
+                            from the answer key by Gemini AI</p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Submit -->
-        <div class="pt-6 border-t border-gray-800 flex justify-end">
+        <div class="pt-4 border-t border-gray-800 flex justify-end">
             <button type="submit"
                 class="bg-[#238636] text-white px-8 py-3 rounded-md hover:bg-[#2ea043] transition-colors font-bold text-lg flex items-center space-x-2">
                 <span>⚡</span>
