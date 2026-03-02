@@ -36,6 +36,7 @@ class CourseProcessor:
         samples_dir: str = None,
         grade_boundaries: Dict = None,
         progress_callback: Callable = None,
+        question_paper_path: str = None,
     ) -> Dict[str, Any]:
         """
         Process an entire course assessment.
@@ -49,6 +50,7 @@ class CourseProcessor:
             samples_dir: Optional directory with teacher-marked samples.
             grade_boundaries: Optional grade boundaries.
             progress_callback: Optional callback(message).
+            question_paper_path: Optional path to the question paper PDF.
 
         Returns:
             Summary dict with processing results.
@@ -76,13 +78,19 @@ class CourseProcessor:
             _progress("Processing answer key...")
             answer_key_texts, answer_key_images, auto_marks = self._process_answer_key(answer_key_path)
 
-            # Auto-detect marks from answer key if not manually provided
+            # Auto-detect marks if not manually provided
             if not marks_per_question:
-                marks_per_question = auto_marks
-                _progress(
-                    f"Auto-detected {len(marks_per_question)} questions with marks: "
-                    f"{marks_per_question}"
-                )
+                qp_marks = []
+                if question_paper_path and Path(question_paper_path).exists():
+                    _progress("Extracting marks from question paper...")
+                    qp_marks = self._extract_marks_from_pdf(question_paper_path)
+                
+                if qp_marks:
+                    marks_per_question = qp_marks
+                    _progress(f"Auto-detected {len(marks_per_question)} questions with marks from question paper: {marks_per_question}")
+                else:
+                    marks_per_question = auto_marks
+                    _progress(f"Auto-detected {len(marks_per_question)} questions with marks from answer key: {marks_per_question}")
             else:
                 _progress(f"Using provided marks: {marks_per_question}")
 
@@ -143,7 +151,6 @@ class CourseProcessor:
                     )
                     result_id = result.id if hasattr(result, 'id') else result['id'] if isinstance(result, dict) else result
 
-                    # Process student
                     student_summary = process_student(
                         pdf_path=str(pdf_file),
                         result_id=result_id,
@@ -154,6 +161,7 @@ class CourseProcessor:
                         answer_key_images=answer_key_images,
                         progress_callback=lambda msg: _progress(f"  [{student_name}] {msg}"),
                         grade_boundaries=grade_boundaries,
+                        assessment_id=assessment_id,
                     )
 
                     if student_summary["status"] == "completed":
@@ -276,9 +284,10 @@ class CourseProcessor:
             assessment_title=resolved_title,
             answer_key_path=scan.answer_key_path,
             students_dir=str(students_tmp),
-            marks_per_question=None,   # auto-detected from answer key
+            marks_per_question=None,   # auto-detected from answer key or question paper
             grade_boundaries=grade_boundaries,
             progress_callback=progress_callback,
+            question_paper_path=scan.question_paper_path,
         )
 
     def _process_answer_key(self, answer_key_path: str):
@@ -337,3 +346,19 @@ class CourseProcessor:
             return match.group(1)
         # Fallback: use filename
         return filename.replace(" ", "_")
+
+    def _extract_marks_from_pdf(self, pdf_path: str) -> List[float]:
+        """Extract marks per question directly from a PDF (e.g., question paper)."""
+        try:
+            images = pdf_to_images(pdf_path)
+            ocr_texts = []
+            for page_img in images:
+                enhanced = enhance_scan(page_img)
+                ocr_result = route_ocr(enhanced)
+                ocr_texts.append(ocr_result["text"])
+            
+            combined_ocr = "\n".join(ocr_texts)
+            return parse_marks_from_answer_key(combined_ocr)
+        except Exception as e:
+            logger.error(f"Failed to extract marks from PDF {pdf_path}: {e}")
+            return []

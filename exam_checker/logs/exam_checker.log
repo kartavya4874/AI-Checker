@@ -2787,3 +2787,4 @@ message: "This API method requires billing to be enabled. Please enable billing 
 2026-03-02 14:10:11 | scan_enhancer             | DEBUG    | Deskewed by -0.96°
 2026-03-02 14:10:40 | scan_enhancer             | DEBUG    | Deskewed by -0.87°
 2026-03-02 14:10:56 | scan_enhancer             | DEBUG    | Deskewed by -0.94°
+2026-03-02 15:34:52 | db_manager                | INFO     | Database initialized: sqlite:///:memory:

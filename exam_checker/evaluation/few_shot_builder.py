@@ -134,3 +134,34 @@ def get_few_shot_messages(examples: List[Dict]) -> List[Dict]:
         messages.append(ex["user"])
         messages.append(ex["assistant"])
     return messages
+
+
+def build_few_shot_from_past_results(
+    db: Any, assessment_id: int, question_number: int
+) -> List[Dict]:
+    """
+    Query the database for recently graded answers to use as dynamic few-shot examples.
+    """
+    past_results = db.get_successful_question_results(assessment_id, question_number, limit=2)
+    examples = []
+    
+    for res in past_results:
+        if not res.get("ocr_text"):
+            continue
+            
+        user_content = f"Student answer:\n{res['ocr_text'][:1000]}"
+        assistant_response = {
+            "marks_obtained": res["marks_obtained"],
+            "feedback": res["feedback"] or "Good response.",
+            "partial_credit_breakdown": [],
+        }
+        
+        examples.append({
+            "user": {"role": "user", "content": user_content},
+            "assistant": {
+                "role": "assistant",
+                "content": json.dumps(assistant_response),
+            },
+        })
+        
+    return examples

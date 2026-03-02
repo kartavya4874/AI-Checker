@@ -29,6 +29,7 @@ def process_student(
     answer_key_images: Dict[int, Image.Image] = None,
     progress_callback: Callable = None,
     grade_boundaries: Dict = None,
+    assessment_id: int = None,
 ) -> Dict[str, Any]:
     """
     Process a single student's answer sheet through the full pipeline.
@@ -112,12 +113,19 @@ def process_student(
 
             _progress(f"Evaluating Question {q_num}...")
 
+            dynamic_few_shots = []
+            if assessment_id:
+                from evaluation.few_shot_builder import build_few_shot_from_past_results
+                dynamic_few_shots = build_few_shot_from_past_results(db, assessment_id, q_num)
+                
+            combined_few_shots = (few_shot_messages or []) + dynamic_few_shots
+            
             q_result = evaluate_question(
                 question_number=q_num,
                 student_img=question_images[q_num],
                 answer_key_text=answer_text,
                 marks_allocated=marks,
-                few_shot_messages=few_shot_messages,
+                few_shot_messages=combined_few_shots if combined_few_shots else None,
                 answer_key_img=answer_img,
             )
 

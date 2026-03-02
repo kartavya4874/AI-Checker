@@ -346,6 +346,33 @@ class DatabaseManager:
                 for qr in qrs
             ]
 
+    def get_successful_question_results(
+        self, assessment_id: int, question_number: int, limit: int = 3
+    ) -> List[Dict]:
+        """Fetch past successfully graded answers for a specific question to use as few-shot examples."""
+        with self.session_scope() as session:
+            qrs = (
+                session.query(QuestionResult)
+                .join(Result, QuestionResult.result_id == Result.id)
+                .filter(
+                    Result.assessment_id == assessment_id,
+                    QuestionResult.question_number == question_number,
+                    QuestionResult.marks_obtained > 0
+                )
+                .order_by(QuestionResult.marks_obtained.desc())
+                .limit(limit)
+                .all()
+            )
+            return [
+                {
+                    "marks_obtained": qr.marks_obtained,
+                    "marks_allocated": qr.marks_allocated,
+                    "feedback": qr.feedback,
+                    "ocr_text": qr.ocr_text,
+                }
+                for qr in qrs
+            ]
+
     # --- Export ---
 
     def export_results_csv(self, assessment_id: int) -> str:
