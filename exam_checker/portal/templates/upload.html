@@ -5,24 +5,34 @@
 {% block content %}
 <div class="mb-8">
     <h1 class="text-3xl font-bold text-white">Process Exams</h1>
-    <p class="text-gray-400 mt-2">Just provide the exam folder path — course details, marks, and everything else are
-        auto-detected.</p>
+    <p class="text-gray-400 mt-2">Provide one or more exam folder paths — all folders are processed in parallel.
+        Course details, marks, and everything else are auto-detected.</p>
 </div>
 
 <div class="max-w-3xl max-w-full">
-    <form action="/start_processing" method="post" class="card p-8 space-y-8">
+    <form id="processingForm" action="/start_processing" method="post" class="card p-8 space-y-8">
 
-        <!-- Exam Folder -->
+        <!-- Exam Folders -->
         <div class="space-y-4">
-            <h2 class="text-xl font-bold text-white border-b border-gray-700 pb-2">Exam Folder Path</h2>
-
-            <div>
-                <label class="block text-sm font-semibold text-gray-300 mb-2">Root Folder Path</label>
-                <input type="text" name="exam_folder" required
-                    placeholder="e.g., C:\Exams\CS101_Midterm  or  /home/user/exams/cs101"
-                    class="w-full bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-2 text-white font-mono focus:outline-none focus:border-[#58a6ff]">
-                <p class="text-xs text-gray-500 mt-1">Enter the full path to the folder on this server/machine.</p>
+            <div class="flex items-center justify-between border-b border-gray-700 pb-2">
+                <h2 class="text-xl font-bold text-white">Exam Folder Paths</h2>
+                <button type="button" id="addFolderBtn"
+                    class="bg-[#30363d] text-[#58a6ff] px-4 py-1.5 rounded-md hover:bg-[#3b424b] transition-colors text-sm font-semibold flex items-center space-x-1">
+                    <span class="text-lg leading-none">+</span>
+                    <span>Add Path</span>
+                </button>
             </div>
+
+            <div id="folderContainer" class="space-y-3">
+                <!-- First folder input (always present) -->
+                <div class="folder-row flex items-center gap-2">
+                    <input type="text" name="exam_folders" required
+                        placeholder="e.g., C:\Exams\CS101_Midterm  or  /home/user/exams/cs101"
+                        class="flex-1 bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-2 text-white font-mono focus:outline-none focus:border-[#58a6ff]">
+                </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">Enter the full path(s) to the folder(s) on this server/machine.
+                Each folder is processed as a separate assessment in parallel.</p>
         </div>
 
         <!-- What gets auto-detected -->
@@ -57,7 +67,8 @@ Department: Engineering</pre>
                         <p class="text-blue-300 font-semibold text-xs mb-1">📋 Question Paper</p>
                         <p class="text-xs text-gray-400">Filename with <code class="text-blue-400">question</code>,
                             <code class="text-blue-400">qp</code>, or <code class="text-blue-400">paper</code> <span
-                                class="text-gray-500">(optional)</span></p>
+                                class="text-gray-500">(optional)</span>
+                        </p>
                     </div>
                     <div class="border border-green-700/40 bg-green-900/10 rounded p-3">
                         <p class="text-green-300 font-semibold text-xs mb-1">🧑‍🎓 Student Sheets</p>
@@ -83,4 +94,21 @@ Department: Engineering</pre>
 
     </form>
 </div>
+
+<script>
+    document.getElementById('addFolderBtn').addEventListener('click', function () {
+        const container = document.getElementById('folderContainer');
+        const row = document.createElement('div');
+        row.className = 'folder-row flex items-center gap-2';
+        row.innerHTML = `
+            <input type="text" name="exam_folders" required
+                placeholder="e.g., C:\\Exams\\CS201_Final  or  /home/user/exams/cs201"
+                class="flex-1 bg-[#0d1117] border border-[#30363d] rounded-md px-4 py-2 text-white font-mono focus:outline-none focus:border-[#58a6ff]">
+            <button type="button" onclick="this.parentElement.remove()"
+                class="text-red-400 hover:text-red-300 px-2 py-1 rounded hover:bg-red-900/20 transition-colors text-lg font-bold"
+                title="Remove this path">&times;</button>
+        `;
+        container.appendChild(row);
+    });
+</script>
 {% endblock %}

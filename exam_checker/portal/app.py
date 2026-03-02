@@ -136,43 +136,75 @@ async def upload_page(request: Request):
 @app.post("/start_processing")
 async def start_processing(
     background_tasks: BackgroundTasks,
-    exam_folder: str = Form(...),
+    exam_folders: List[str] = Form(...),
 ):
-    """Start the exam checking pipeline from a single folder path.
-    
+    """Start the exam checking pipeline from one or more folder paths.
+
     Course code, course name, and assessment title are all auto-detected
-    from the folder name or a course_info.txt file inside it.
+    from each folder name or a course_info.txt file inside it.
+    All folders are processed in parallel.
     """
-    # Validate folder
-    folder_path = Path(exam_folder.strip())
-    if not folder_path.exists() or not folder_path.is_dir():
-        raise HTTPException(status_code=400, detail=f"Folder not found: {exam_folder}")
+    # Validate all folders first before starting anything
+    validated_folders = []
+    for folder in exam_folders:
+        folder_path = Path(folder.strip())
+        if not folder_path.exists() or not folder_path.is_dir():
+            raise HTTPException(status_code=400, detail=f"Folder not found: {folder}")
 
-    # Quick scan to validate contents
-    scan = scan_exam_folder(str(folder_path))
-    if not scan.answer_key_path:
-        raise HTTPException(
-            status_code=400,
-            detail=(
-                "No answer key PDF found in folder. "
-                "Rename a file to include 'answer_key', 'key', or 'solution'."
-            ),
-        )
-    if not scan.student_paths:
-        raise HTTPException(
-            status_code=400,
-            detail="No student answer sheets found in folder.",
-        )
+        # Quick scan to validate contents
+        scan = scan_exam_folder(str(folder_path))
+        if not scan.answer_key_path:
+            raise HTTPException(
+                status_code=400,
+                detail=(
+                    f"No answer key PDF found in folder '{folder_path.name}'. "
+                    "Rename a file to include 'answer_key', 'key', or 'solution'."
+                ),
+            )
+        if not scan.student_paths:
+            raise HTTPException(
+                status_code=400,
+                detail=f"No student answer sheets found in folder '{folder_path.name}'.",
+            )
+        validated_folders.append(str(folder_path))
 
-    # Course details auto-detected inside process_from_folder()
-    background_tasks.add_task(run_processing_task, str(folder_path))
+    # All folders valid — launch parallel background processing
+    background_tasks.add_task(run_processing_task, validated_folders)
     return RedirectResponse(url="/", status_code=303)
 
 
-def run_processing_task(exam_folder: str):
-    """Background task: process exam from a single root folder."""
-    processor = CourseProcessor(db)
-    processor.process_from_folder(root_folder=exam_folder)
+def run_processing_task(exam_folders: List[str]):
+    """Background task: process multiple exam folders in parallel."""
+    import threading
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    max_workers = config.MAX_WORKERS
+
+    def _process_one_folder(folder_path: str):
+        """Process a single folder with its own CourseProcessor."""
+        try:
+            processor = CourseProcessor(db)
+            processor.process_from_folder(root_folder=folder_path)
+        except Exception as e:
+            import logging
+            logging.getLogger("portal").error(f"Failed to process folder {folder_path}: {e}")
+
+    if len(exam_folders) == 1:
+        # Single folder — no need for extra threading layer
+        _process_one_folder(exam_folders[0])
+    else:
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {
+                executor.submit(_process_one_folder, folder): folder
+                for folder in exam_folders
+            }
+            for future in as_completed(futures):
+                folder = futures[future]
+                try:
+                    future.result()
+                except Exception as e:
+                    import logging
+                    logging.getLogger("portal").error(f"Thread error processing {folder}: {e}")
 
 
 @app.get("/export/{assessment_id}/csv")

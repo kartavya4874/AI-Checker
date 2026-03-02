@@ -2788,3 +2788,1077 @@ message: "This API method requires billing to be enabled. Please enable billing 
 2026-03-02 14:10:40 | scan_enhancer             | DEBUG    | Deskewed by -0.87°
 2026-03-02 14:10:56 | scan_enhancer             | DEBUG    | Deskewed by -0.94°
 2026-03-02 15:34:52 | db_manager                | INFO     | Database initialized: sqlite:///:memory:
+2026-03-02 16:01:41 | db_manager                | INFO     | Database initialized: sqlite:///C:\Users\karta\OneDrive\Desktop\AI_Checker\exam_checker\exam_checker.db
+2026-03-02 16:02:14 | folder_scanner            | INFO     | Parsed folder name 'MB3204_MSE' → code=MB3204, title=MSE
+2026-03-02 16:02:14 | folder_scanner            | INFO     | Scan complete — answer_key=C:\Users\karta\Downloads\Content (2)\Content\MB3204_MSE\answer_key.pdf, question_paper=C:\Users\karta\Downloads\Content (2)\Content\MB3204_MSE\questionpaper.pdf, students=2
+2026-03-02 16:02:17 | folder_scanner            | INFO     | Scan complete — answer_key=C:\Users\karta\Downloads\Content (2)\Content\MB3204_MSE\answer_key.pdf, question_paper=C:\Users\karta\Downloads\Content (2)\Content\MB3204_MSE\questionpaper.pdf, students=2
+2026-03-02 16:02:17 | folder_scanner            | INFO     | Parsed folder name 'MB3204_MSE' → code=MB3204, title=MSE
+2026-03-02 16:02:17 | course_processor          | INFO     | Course detected: MB3204 — [MSE] (from folder_name)
+2026-03-02 16:02:17 | course_processor          | INFO     | Course ready: MB3204
+2026-03-02 16:02:17 | course_processor          | INFO     | Scanning folder: C:/Users/karta/Downloads/Content (2)/Content/MB3204_MSE
+2026-03-02 16:02:17 | folder_scanner            | INFO     | Scan complete — answer_key=C:\Users\karta\Downloads\Content (2)\Content\MB3204_MSE\answer_key.pdf, question_paper=C:\Users\karta\Downloads\Content (2)\Content\MB3204_MSE\questionpaper.pdf, students=2
+2026-03-02 16:02:17 | course_processor          | INFO     |   Answer Key:     C:\Users\karta\Downloads\Content (2)\Content\MB3204_MSE\answer_key.pdf
+  Question Paper: C:\Users\karta\Downloads\Content (2)\Content\MB3204_MSE\questionpaper.pdf
+  Student Sheets: 2 file(s)
+    · student_49211003.pdf
+    · student_4921127.pdf
+2026-03-02 16:02:18 | course_processor          | INFO     | Setting up course: MB3204
+2026-03-02 16:02:18 | course_processor          | INFO     | Processing answer key...
+2026-03-02 16:02:18 | pdf_converter             | DEBUG    | Page 1/8 converted: 2479x3506
+2026-03-02 16:02:18 | pdf_converter             | DEBUG    | Page 2/8 converted: 2480x3507
+2026-03-02 16:02:18 | pdf_converter             | DEBUG    | Page 3/8 converted: 2480x3507
+2026-03-02 16:02:18 | pdf_converter             | DEBUG    | Page 4/8 converted: 2480x3507
+2026-03-02 16:02:19 | pdf_converter             | DEBUG    | Page 5/8 converted: 2480x3507
+2026-03-02 16:02:19 | pdf_converter             | DEBUG    | Page 6/8 converted: 2480x3507
+2026-03-02 16:02:19 | pdf_converter             | DEBUG    | Page 7/8 converted: 2480x3507
+2026-03-02 16:02:19 | pdf_converter             | DEBUG    | Page 8/8 converted: 2480x3507
+2026-03-02 16:02:19 | pdf_converter             | INFO     | Converted 8 pages from answer_key.pdf
+2026-03-02 16:02:20 | scan_enhancer             | DEBUG    | Deskewed by -1.01°
+2026-03-02 16:02:28 | region_segmenter          | INFO     | Segmented page into 16 regions
+2026-03-02 16:02:28 | scan_enhancer             | DEBUG    | Deskewed by 1.00°
+2026-03-02 16:02:46 | region_segmenter          | INFO     | Segmented page into 10 regions
+2026-03-02 16:02:47 | scan_enhancer             | DEBUG    | Deskewed by -1.00°
+2026-03-02 16:03:07 | region_segmenter          | INFO     | Segmented page into 11 regions
+2026-03-02 16:03:08 | scan_enhancer             | DEBUG    | Deskewed by 0.92°
+2026-03-02 16:03:28 | region_segmenter          | INFO     | Segmented page into 11 regions
+2026-03-02 16:03:29 | scan_enhancer             | DEBUG    | Deskewed by -1.07°
+2026-03-02 16:03:50 | region_segmenter          | INFO     | Segmented page into 12 regions
+2026-03-02 16:03:50 | scan_enhancer             | DEBUG    | Deskewed by 1.03°
+2026-03-02 16:04:11 | region_segmenter          | INFO     | Segmented page into 11 regions
+2026-03-02 16:04:12 | scan_enhancer             | DEBUG    | Deskewed by -1.89°
+2026-03-02 16:04:33 | region_segmenter          | INFO     | Segmented page into 5 regions
+2026-03-02 16:04:53 | region_segmenter          | INFO     | Segmented page into 9 regions
+2026-03-02 16:04:53 | blank_detector            | DEBUG    | Ink ratio: 0.0001, threshold: 0.01, blank: True
+2026-03-02 16:04:53 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:04:53 | blank_detector            | DEBUG    | Ink ratio: 0.0270, threshold: 0.01, blank: False
+2026-03-02 16:04:57 | handwriting_ocr           | DEBUG    | Handwriting OCR: 44 chars, confidence=0.885
+2026-03-02 16:04:57 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.885, text_length=44
+2026-03-02 16:04:57 | blank_detector            | DEBUG    | Ink ratio: 0.0079, threshold: 0.01, blank: True
+2026-03-02 16:04:57 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:04:57 | blank_detector            | DEBUG    | Ink ratio: 0.0423, threshold: 0.01, blank: False
+2026-03-02 16:04:58 | handwriting_ocr           | DEBUG    | Handwriting OCR: 98 chars, confidence=0.967
+2026-03-02 16:04:58 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.967, text_length=98
+2026-03-02 16:04:58 | blank_detector            | DEBUG    | Ink ratio: 0.0426, threshold: 0.01, blank: False
+2026-03-02 16:04:59 | handwriting_ocr           | DEBUG    | Handwriting OCR: 98 chars, confidence=0.969
+2026-03-02 16:04:59 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.969, text_length=98
+2026-03-02 16:04:59 | blank_detector            | DEBUG    | Ink ratio: 0.0420, threshold: 0.01, blank: False
+2026-03-02 16:05:00 | handwriting_ocr           | DEBUG    | Handwriting OCR: 89 chars, confidence=0.971
+2026-03-02 16:05:00 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.971, text_length=89
+2026-03-02 16:05:00 | blank_detector            | DEBUG    | Ink ratio: 0.0552, threshold: 0.01, blank: False
+2026-03-02 16:05:01 | handwriting_ocr           | DEBUG    | Handwriting OCR: 117 chars, confidence=0.963
+2026-03-02 16:05:01 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.963, text_length=117
+2026-03-02 16:05:01 | blank_detector            | DEBUG    | Ink ratio: 0.0461, threshold: 0.01, blank: False
+2026-03-02 16:05:02 | handwriting_ocr           | DEBUG    | Handwriting OCR: 99 chars, confidence=0.963
+2026-03-02 16:05:02 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.963, text_length=99
+2026-03-02 16:05:02 | blank_detector            | DEBUG    | Ink ratio: 0.0519, threshold: 0.01, blank: False
+2026-03-02 16:05:03 | handwriting_ocr           | DEBUG    | Handwriting OCR: 118 chars, confidence=0.969
+2026-03-02 16:05:03 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.969, text_length=118
+2026-03-02 16:05:03 | blank_detector            | DEBUG    | Ink ratio: 0.0340, threshold: 0.01, blank: False
+2026-03-02 16:05:04 | handwriting_ocr           | DEBUG    | Handwriting OCR: 72 chars, confidence=0.974
+2026-03-02 16:05:04 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.974, text_length=72
+2026-03-02 16:05:04 | blank_detector            | DEBUG    | Ink ratio: 0.0435, threshold: 0.01, blank: False
+2026-03-02 16:05:05 | handwriting_ocr           | DEBUG    | Handwriting OCR: 97 chars, confidence=0.962
+2026-03-02 16:05:05 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.962, text_length=97
+2026-03-02 16:05:05 | blank_detector            | DEBUG    | Ink ratio: 0.0380, threshold: 0.01, blank: False
+2026-03-02 16:05:06 | handwriting_ocr           | DEBUG    | Handwriting OCR: 90 chars, confidence=0.965
+2026-03-02 16:05:06 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.965, text_length=90
+2026-03-02 16:05:06 | blank_detector            | DEBUG    | Ink ratio: 0.0571, threshold: 0.01, blank: False
+2026-03-02 16:05:07 | handwriting_ocr           | DEBUG    | Handwriting OCR: 183 chars, confidence=0.973
+2026-03-02 16:05:07 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.973, text_length=183
+2026-03-02 16:05:07 | blank_detector            | DEBUG    | Ink ratio: 0.0067, threshold: 0.01, blank: True
+2026-03-02 16:05:07 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:07 | blank_detector            | DEBUG    | Ink ratio: 0.0346, threshold: 0.01, blank: False
+2026-03-02 16:05:07 | handwriting_ocr           | DEBUG    | Handwriting OCR: 79 chars, confidence=0.983
+2026-03-02 16:05:07 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.983, text_length=79
+2026-03-02 16:05:07 | blank_detector            | DEBUG    | Ink ratio: 0.0365, threshold: 0.01, blank: False
+2026-03-02 16:05:09 | handwriting_ocr           | DEBUG    | Handwriting OCR: 358 chars, confidence=0.984
+2026-03-02 16:05:09 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.984, text_length=358
+2026-03-02 16:05:09 | blank_detector            | DEBUG    | Ink ratio: 0.0001, threshold: 0.01, blank: True
+2026-03-02 16:05:09 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:09 | blank_detector            | DEBUG    | Ink ratio: 0.0252, threshold: 0.01, blank: False
+2026-03-02 16:05:10 | handwriting_ocr           | DEBUG    | Handwriting OCR: 141 chars, confidence=0.985
+2026-03-02 16:05:10 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.985, text_length=141
+2026-03-02 16:05:10 | blank_detector            | DEBUG    | Ink ratio: 0.0306, threshold: 0.01, blank: False
+2026-03-02 16:05:11 | handwriting_ocr           | DEBUG    | Handwriting OCR: 80 chars, confidence=0.976
+2026-03-02 16:05:11 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.976, text_length=80
+2026-03-02 16:05:11 | blank_detector            | DEBUG    | Ink ratio: 0.0638, threshold: 0.01, blank: False
+2026-03-02 16:05:13 | handwriting_ocr           | DEBUG    | Handwriting OCR: 385 chars, confidence=0.970
+2026-03-02 16:05:13 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.970, text_length=385
+2026-03-02 16:05:13 | blank_detector            | DEBUG    | Ink ratio: 0.0298, threshold: 0.01, blank: False
+2026-03-02 16:05:14 | handwriting_ocr           | DEBUG    | Handwriting OCR: 71 chars, confidence=0.974
+2026-03-02 16:05:14 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.974, text_length=71
+2026-03-02 16:05:14 | blank_detector            | DEBUG    | Ink ratio: 0.0591, threshold: 0.01, blank: False
+2026-03-02 16:05:15 | handwriting_ocr           | DEBUG    | Handwriting OCR: 383 chars, confidence=0.959
+2026-03-02 16:05:15 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.959, text_length=383
+2026-03-02 16:05:15 | blank_detector            | DEBUG    | Ink ratio: 0.0185, threshold: 0.01, blank: False
+2026-03-02 16:05:16 | handwriting_ocr           | DEBUG    | Handwriting OCR: 59 chars, confidence=0.972
+2026-03-02 16:05:16 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.972, text_length=59
+2026-03-02 16:05:16 | blank_detector            | DEBUG    | Ink ratio: 0.0649, threshold: 0.01, blank: False
+2026-03-02 16:05:17 | handwriting_ocr           | DEBUG    | Handwriting OCR: 308 chars, confidence=0.953
+2026-03-02 16:05:17 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:05:19 | multilingual_ocr          | DEBUG    | Multilingual OCR: 308 chars, langs=['en'], confidence=0.953
+2026-03-02 16:05:19 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.953, text_length=308
+2026-03-02 16:05:19 | blank_detector            | DEBUG    | Ink ratio: 0.0274, threshold: 0.01, blank: False
+2026-03-02 16:05:19 | handwriting_ocr           | DEBUG    | Handwriting OCR: 64 chars, confidence=0.974
+2026-03-02 16:05:19 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.974, text_length=64
+2026-03-02 16:05:19 | blank_detector            | DEBUG    | Ink ratio: 0.0375, threshold: 0.01, blank: False
+2026-03-02 16:05:21 | handwriting_ocr           | DEBUG    | Handwriting OCR: 401 chars, confidence=0.967
+2026-03-02 16:05:21 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.967, text_length=401
+2026-03-02 16:05:21 | blank_detector            | DEBUG    | Ink ratio: 0.0001, threshold: 0.01, blank: True
+2026-03-02 16:05:21 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:21 | blank_detector            | DEBUG    | Ink ratio: 0.0047, threshold: 0.01, blank: True
+2026-03-02 16:05:21 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:21 | blank_detector            | DEBUG    | Ink ratio: 0.0354, threshold: 0.01, blank: False
+2026-03-02 16:05:22 | handwriting_ocr           | DEBUG    | Handwriting OCR: 83 chars, confidence=0.980
+2026-03-02 16:05:22 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.980, text_length=83
+2026-03-02 16:05:22 | blank_detector            | DEBUG    | Ink ratio: 0.0524, threshold: 0.01, blank: False
+2026-03-02 16:05:23 | handwriting_ocr           | DEBUG    | Handwriting OCR: 278 chars, confidence=0.978
+2026-03-02 16:05:23 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.978, text_length=278
+2026-03-02 16:05:23 | blank_detector            | DEBUG    | Ink ratio: 0.0336, threshold: 0.01, blank: False
+2026-03-02 16:05:24 | handwriting_ocr           | DEBUG    | Handwriting OCR: 79 chars, confidence=0.976
+2026-03-02 16:05:24 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.976, text_length=79
+2026-03-02 16:05:24 | blank_detector            | DEBUG    | Ink ratio: 0.0384, threshold: 0.01, blank: False
+2026-03-02 16:05:25 | handwriting_ocr           | DEBUG    | Handwriting OCR: 242 chars, confidence=0.978
+2026-03-02 16:05:25 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.978, text_length=242
+2026-03-02 16:05:25 | blank_detector            | DEBUG    | Ink ratio: 0.0314, threshold: 0.01, blank: False
+2026-03-02 16:05:26 | handwriting_ocr           | DEBUG    | Handwriting OCR: 72 chars, confidence=0.977
+2026-03-02 16:05:26 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.977, text_length=72
+2026-03-02 16:05:26 | blank_detector            | DEBUG    | Ink ratio: 0.0371, threshold: 0.01, blank: False
+2026-03-02 16:05:27 | handwriting_ocr           | DEBUG    | Handwriting OCR: 180 chars, confidence=0.977
+2026-03-02 16:05:27 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:05:27 | multilingual_ocr          | DEBUG    | Multilingual OCR: 180 chars, langs=['en'], confidence=0.977
+2026-03-02 16:05:28 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.977, text_length=180
+2026-03-02 16:05:28 | blank_detector            | DEBUG    | Ink ratio: 0.0302, threshold: 0.01, blank: False
+2026-03-02 16:05:28 | handwriting_ocr           | DEBUG    | Handwriting OCR: 69 chars, confidence=0.976
+2026-03-02 16:05:28 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.976, text_length=69
+2026-03-02 16:05:28 | blank_detector            | DEBUG    | Ink ratio: 0.0403, threshold: 0.01, blank: False
+2026-03-02 16:05:29 | handwriting_ocr           | DEBUG    | Handwriting OCR: 214 chars, confidence=0.983
+2026-03-02 16:05:29 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.983, text_length=214
+2026-03-02 16:05:29 | blank_detector            | DEBUG    | Ink ratio: 0.0060, threshold: 0.01, blank: True
+2026-03-02 16:05:29 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:29 | blank_detector            | DEBUG    | Ink ratio: 0.0001, threshold: 0.01, blank: True
+2026-03-02 16:05:29 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:30 | blank_detector            | DEBUG    | Ink ratio: 0.0205, threshold: 0.01, blank: False
+2026-03-02 16:05:30 | handwriting_ocr           | DEBUG    | Handwriting OCR: 95 chars, confidence=0.917
+2026-03-02 16:05:30 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.917, text_length=95
+2026-03-02 16:05:30 | blank_detector            | DEBUG    | Ink ratio: 0.0421, threshold: 0.01, blank: False
+2026-03-02 16:05:31 | handwriting_ocr           | DEBUG    | Handwriting OCR: 215 chars, confidence=0.969
+2026-03-02 16:05:31 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:05:32 | multilingual_ocr          | DEBUG    | Multilingual OCR: 213 chars, langs=['en'], confidence=0.970
+2026-03-02 16:05:32 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.970, text_length=213
+2026-03-02 16:05:32 | blank_detector            | DEBUG    | Ink ratio: 0.0456, threshold: 0.01, blank: False
+2026-03-02 16:05:33 | handwriting_ocr           | DEBUG    | Handwriting OCR: 86 chars, confidence=0.981
+2026-03-02 16:05:33 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.981, text_length=86
+2026-03-02 16:05:33 | blank_detector            | DEBUG    | Ink ratio: 0.0115, threshold: 0.01, blank: False
+2026-03-02 16:05:34 | handwriting_ocr           | DEBUG    | Handwriting OCR: 14 chars, confidence=0.967
+2026-03-02 16:05:34 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.967, text_length=14
+2026-03-02 16:05:34 | blank_detector            | DEBUG    | Ink ratio: 0.0613, threshold: 0.01, blank: False
+2026-03-02 16:05:35 | handwriting_ocr           | DEBUG    | Handwriting OCR: 316 chars, confidence=0.975
+2026-03-02 16:05:35 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.975, text_length=316
+2026-03-02 16:05:35 | blank_detector            | DEBUG    | Ink ratio: 0.0095, threshold: 0.01, blank: True
+2026-03-02 16:05:35 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:35 | blank_detector            | DEBUG    | Ink ratio: 0.0470, threshold: 0.01, blank: False
+2026-03-02 16:05:37 | handwriting_ocr           | DEBUG    | Handwriting OCR: 260 chars, confidence=0.968
+2026-03-02 16:05:37 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.968, text_length=260
+2026-03-02 16:05:37 | blank_detector            | DEBUG    | Ink ratio: 0.0429, threshold: 0.01, blank: False
+2026-03-02 16:05:37 | handwriting_ocr           | DEBUG    | Handwriting OCR: 84 chars, confidence=0.971
+2026-03-02 16:05:37 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.971, text_length=84
+2026-03-02 16:05:37 | blank_detector            | DEBUG    | Ink ratio: 0.0464, threshold: 0.01, blank: False
+2026-03-02 16:05:39 | handwriting_ocr           | DEBUG    | Handwriting OCR: 459 chars, confidence=0.979
+2026-03-02 16:05:39 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.979, text_length=459
+2026-03-02 16:05:39 | blank_detector            | DEBUG    | Ink ratio: 0.0150, threshold: 0.01, blank: False
+2026-03-02 16:05:40 | handwriting_ocr           | DEBUG    | Handwriting OCR: 88 chars, confidence=0.981
+2026-03-02 16:05:40 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.981, text_length=88
+2026-03-02 16:05:40 | blank_detector            | DEBUG    | Ink ratio: 0.0002, threshold: 0.01, blank: True
+2026-03-02 16:05:40 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:40 | blank_detector            | DEBUG    | Ink ratio: 0.0475, threshold: 0.01, blank: False
+2026-03-02 16:05:41 | handwriting_ocr           | DEBUG    | Handwriting OCR: 375 chars, confidence=0.976
+2026-03-02 16:05:41 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.976, text_length=375
+2026-03-02 16:05:41 | blank_detector            | DEBUG    | Ink ratio: 0.0649, threshold: 0.01, blank: False
+2026-03-02 16:05:42 | handwriting_ocr           | DEBUG    | Handwriting OCR: 115 chars, confidence=0.983
+2026-03-02 16:05:42 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.983, text_length=115
+2026-03-02 16:05:42 | blank_detector            | DEBUG    | Ink ratio: 0.0196, threshold: 0.01, blank: False
+2026-03-02 16:05:43 | handwriting_ocr           | DEBUG    | Handwriting OCR: 24 chars, confidence=0.969
+2026-03-02 16:05:43 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.969, text_length=24
+2026-03-02 16:05:43 | blank_detector            | DEBUG    | Ink ratio: 0.0483, threshold: 0.01, blank: False
+2026-03-02 16:05:44 | handwriting_ocr           | DEBUG    | Handwriting OCR: 179 chars, confidence=0.955
+2026-03-02 16:05:44 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.955, text_length=179
+2026-03-02 16:05:44 | blank_detector            | DEBUG    | Ink ratio: 0.0185, threshold: 0.01, blank: False
+2026-03-02 16:05:45 | handwriting_ocr           | DEBUG    | Handwriting OCR: 23 chars, confidence=0.980
+2026-03-02 16:05:45 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.980, text_length=23
+2026-03-02 16:05:45 | blank_detector            | DEBUG    | Ink ratio: 0.0680, threshold: 0.01, blank: False
+2026-03-02 16:05:46 | handwriting_ocr           | DEBUG    | Handwriting OCR: 258 chars, confidence=0.973
+2026-03-02 16:05:46 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.973, text_length=258
+2026-03-02 16:05:46 | blank_detector            | DEBUG    | Ink ratio: 0.0475, threshold: 0.01, blank: False
+2026-03-02 16:05:47 | handwriting_ocr           | DEBUG    | Handwriting OCR: 86 chars, confidence=0.982
+2026-03-02 16:05:47 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.982, text_length=86
+2026-03-02 16:05:47 | blank_detector            | DEBUG    | Ink ratio: 0.0606, threshold: 0.01, blank: False
+2026-03-02 16:05:48 | handwriting_ocr           | DEBUG    | Handwriting OCR: 463 chars, confidence=0.963
+2026-03-02 16:05:48 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.963, text_length=463
+2026-03-02 16:05:48 | blank_detector            | DEBUG    | Ink ratio: 0.0415, threshold: 0.01, blank: False
+2026-03-02 16:05:49 | handwriting_ocr           | DEBUG    | Handwriting OCR: 100 chars, confidence=0.984
+2026-03-02 16:05:49 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.984, text_length=100
+2026-03-02 16:05:49 | blank_detector            | DEBUG    | Ink ratio: 0.0054, threshold: 0.01, blank: True
+2026-03-02 16:05:49 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:49 | blank_detector            | DEBUG    | Ink ratio: 0.0088, threshold: 0.01, blank: True
+2026-03-02 16:05:49 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:49 | blank_detector            | DEBUG    | Ink ratio: 0.0001, threshold: 0.01, blank: True
+2026-03-02 16:05:49 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:49 | blank_detector            | DEBUG    | Ink ratio: 0.0335, threshold: 0.01, blank: False
+2026-03-02 16:05:50 | handwriting_ocr           | DEBUG    | Handwriting OCR: 155 chars, confidence=0.948
+2026-03-02 16:05:50 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.948, text_length=155
+2026-03-02 16:05:50 | blank_detector            | DEBUG    | Ink ratio: 0.0091, threshold: 0.01, blank: True
+2026-03-02 16:05:50 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:50 | blank_detector            | DEBUG    | Ink ratio: 0.0380, threshold: 0.01, blank: False
+2026-03-02 16:05:52 | handwriting_ocr           | DEBUG    | Handwriting OCR: 229 chars, confidence=0.957
+2026-03-02 16:05:52 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.957, text_length=229
+2026-03-02 16:05:52 | blank_detector            | DEBUG    | Ink ratio: 0.0344, threshold: 0.01, blank: False
+2026-03-02 16:05:52 | handwriting_ocr           | DEBUG    | Handwriting OCR: 83 chars, confidence=0.975
+2026-03-02 16:05:52 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.975, text_length=83
+2026-03-02 16:05:52 | blank_detector            | DEBUG    | Ink ratio: 0.0439, threshold: 0.01, blank: False
+2026-03-02 16:05:54 | handwriting_ocr           | DEBUG    | Handwriting OCR: 367 chars, confidence=0.982
+2026-03-02 16:05:54 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.982, text_length=367
+2026-03-02 16:05:54 | blank_detector            | DEBUG    | Ink ratio: 0.0529, threshold: 0.01, blank: False
+2026-03-02 16:05:55 | handwriting_ocr           | DEBUG    | Handwriting OCR: 101 chars, confidence=0.979
+2026-03-02 16:05:55 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.979, text_length=101
+2026-03-02 16:05:55 | blank_detector            | DEBUG    | Ink ratio: 0.0293, threshold: 0.01, blank: False
+2026-03-02 16:05:56 | handwriting_ocr           | DEBUG    | Handwriting OCR: 39 chars, confidence=0.921
+2026-03-02 16:05:56 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.921, text_length=39
+2026-03-02 16:05:56 | blank_detector            | DEBUG    | Ink ratio: 0.0514, threshold: 0.01, blank: False
+2026-03-02 16:05:57 | handwriting_ocr           | DEBUG    | Handwriting OCR: 266 chars, confidence=0.970
+2026-03-02 16:05:57 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.970, text_length=266
+2026-03-02 16:05:57 | blank_detector            | DEBUG    | Ink ratio: 0.0461, threshold: 0.01, blank: False
+2026-03-02 16:05:58 | handwriting_ocr           | DEBUG    | Handwriting OCR: 88 chars, confidence=0.978
+2026-03-02 16:05:58 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.978, text_length=88
+2026-03-02 16:05:58 | blank_detector            | DEBUG    | Ink ratio: 0.0255, threshold: 0.01, blank: False
+2026-03-02 16:05:59 | handwriting_ocr           | DEBUG    | Handwriting OCR: 246 chars, confidence=0.966
+2026-03-02 16:05:59 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.966, text_length=246
+2026-03-02 16:05:59 | blank_detector            | DEBUG    | Ink ratio: 0.0002, threshold: 0.01, blank: True
+2026-03-02 16:05:59 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:05:59 | blank_detector            | DEBUG    | Ink ratio: 0.0342, threshold: 0.01, blank: False
+2026-03-02 16:06:00 | handwriting_ocr           | DEBUG    | Handwriting OCR: 249 chars, confidence=0.959
+2026-03-02 16:06:00 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.959, text_length=249
+2026-03-02 16:06:00 | blank_detector            | DEBUG    | Ink ratio: 0.0680, threshold: 0.01, blank: False
+2026-03-02 16:06:01 | handwriting_ocr           | DEBUG    | Handwriting OCR: 120 chars, confidence=0.983
+2026-03-02 16:06:01 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.983, text_length=120
+2026-03-02 16:06:01 | blank_detector            | DEBUG    | Ink ratio: 0.0338, threshold: 0.01, blank: False
+2026-03-02 16:06:02 | handwriting_ocr           | DEBUG    | Handwriting OCR: 413 chars, confidence=0.968
+2026-03-02 16:06:02 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.968, text_length=413
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0016, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0003, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0000, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0000, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0001, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0001, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0000, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0002, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0000, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | blank_detector            | DEBUG    | Ink ratio: 0.0000, threshold: 0.01, blank: True
+2026-03-02 16:06:03 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:06:03 | question_mapper           | INFO     | Mapped 85 regions to 20 questions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q1: merged 25 regions → 2480x10400
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q5: merged 3 regions → 2479x666
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q3: merged 2 regions → 2480x714
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q10: merged 2 regions → 2479x355
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q11: merged 6 regions → 2480x2097
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q12: merged 4 regions → 2480x1238
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q13: merged 3 regions → 2480x772
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q14: merged 4 regions → 2480x1192
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q15: merged 6 regions → 2480x1816
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q16: merged 4 regions → 2480x1263
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q17: merged 5 regions → 2480x1588
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q18: merged 8 regions → 2480x1961
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q19: merged 5 regions → 2480x1525
+2026-03-02 16:06:03 | question_mapper           | DEBUG    | Q20: merged 2 regions → 2480x387
+2026-03-02 16:06:04 | blank_detector            | DEBUG    | Ink ratio: 0.0191, threshold: 0.01, blank: False
+2026-03-02 16:06:11 | handwriting_ocr           | DEBUG    | Handwriting OCR: 2684 chars, confidence=0.963
+2026-03-02 16:06:11 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.963, text_length=2684
+2026-03-02 16:06:11 | blank_detector            | DEBUG    | Ink ratio: 0.0270, threshold: 0.01, blank: False
+2026-03-02 16:06:12 | handwriting_ocr           | DEBUG    | Handwriting OCR: 160 chars, confidence=0.947
+2026-03-02 16:06:12 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.947, text_length=160
+2026-03-02 16:06:12 | blank_detector            | DEBUG    | Ink ratio: 0.0426, threshold: 0.01, blank: False
+2026-03-02 16:06:13 | handwriting_ocr           | DEBUG    | Handwriting OCR: 98 chars, confidence=0.969
+2026-03-02 16:06:13 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.969, text_length=98
+2026-03-02 16:06:13 | blank_detector            | DEBUG    | Ink ratio: 0.0361, threshold: 0.01, blank: False
+2026-03-02 16:06:15 | handwriting_ocr           | DEBUG    | Handwriting OCR: 339 chars, confidence=0.966
+2026-03-02 16:06:15 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.966, text_length=339
+2026-03-02 16:06:15 | blank_detector            | DEBUG    | Ink ratio: 0.0552, threshold: 0.01, blank: False
+2026-03-02 16:06:16 | handwriting_ocr           | DEBUG    | Handwriting OCR: 117 chars, confidence=0.963
+2026-03-02 16:06:16 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.963, text_length=117
+2026-03-02 16:06:16 | blank_detector            | DEBUG    | Ink ratio: 0.0519, threshold: 0.01, blank: False
+2026-03-02 16:06:17 | handwriting_ocr           | DEBUG    | Handwriting OCR: 118 chars, confidence=0.969
+2026-03-02 16:06:17 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.969, text_length=118
+2026-03-02 16:06:17 | blank_detector            | DEBUG    | Ink ratio: 0.0340, threshold: 0.01, blank: False
+2026-03-02 16:06:17 | handwriting_ocr           | DEBUG    | Handwriting OCR: 72 chars, confidence=0.974
+2026-03-02 16:06:17 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.974, text_length=72
+2026-03-02 16:06:17 | blank_detector            | DEBUG    | Ink ratio: 0.0435, threshold: 0.01, blank: False
+2026-03-02 16:06:18 | handwriting_ocr           | DEBUG    | Handwriting OCR: 97 chars, confidence=0.962
+2026-03-02 16:06:18 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.962, text_length=97
+2026-03-02 16:06:18 | blank_detector            | DEBUG    | Ink ratio: 0.0380, threshold: 0.01, blank: False
+2026-03-02 16:06:19 | handwriting_ocr           | DEBUG    | Handwriting OCR: 90 chars, confidence=0.965
+2026-03-02 16:06:19 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.965, text_length=90
+2026-03-02 16:06:19 | blank_detector            | DEBUG    | Ink ratio: 0.0405, threshold: 0.01, blank: False
+2026-03-02 16:06:20 | handwriting_ocr           | DEBUG    | Handwriting OCR: 190 chars, confidence=0.973
+2026-03-02 16:06:20 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.973, text_length=190
+2026-03-02 16:06:20 | blank_detector            | DEBUG    | Ink ratio: 0.0366, threshold: 0.01, blank: False
+2026-03-02 16:06:23 | handwriting_ocr           | DEBUG    | Handwriting OCR: 1047 chars, confidence=0.979
+2026-03-02 16:06:23 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.979, text_length=1047
+2026-03-02 16:06:23 | blank_detector            | DEBUG    | Ink ratio: 0.0493, threshold: 0.01, blank: False
+2026-03-02 16:06:25 | handwriting_ocr           | DEBUG    | Handwriting OCR: 828 chars, confidence=0.954
+2026-03-02 16:06:25 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:06:27 | multilingual_ocr          | DEBUG    | Multilingual OCR: 826 chars, langs=['en'], confidence=0.956
+2026-03-02 16:06:27 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.956, text_length=826
+2026-03-02 16:06:27 | blank_detector            | DEBUG    | Ink ratio: 0.0429, threshold: 0.01, blank: False
+2026-03-02 16:06:29 | handwriting_ocr           | DEBUG    | Handwriting OCR: 427 chars, confidence=0.977
+2026-03-02 16:06:29 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.977, text_length=427
+2026-03-02 16:06:29 | blank_detector            | DEBUG    | Ink ratio: 0.0362, threshold: 0.01, blank: False
+2026-03-02 16:06:30 | handwriting_ocr           | DEBUG    | Handwriting OCR: 576 chars, confidence=0.973
+2026-03-02 16:06:30 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.973, text_length=576
+2026-03-02 16:06:31 | blank_detector            | DEBUG    | Ink ratio: 0.0240, threshold: 0.01, blank: False
+2026-03-02 16:06:33 | handwriting_ocr           | DEBUG    | Handwriting OCR: 596 chars, confidence=0.966
+2026-03-02 16:06:33 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.966, text_length=596
+2026-03-02 16:06:33 | blank_detector            | DEBUG    | Ink ratio: 0.0426, threshold: 0.01, blank: False
+2026-03-02 16:06:35 | handwriting_ocr           | DEBUG    | Handwriting OCR: 648 chars, confidence=0.976
+2026-03-02 16:06:35 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.976, text_length=648
+2026-03-02 16:06:35 | blank_detector            | DEBUG    | Ink ratio: 0.0322, threshold: 0.01, blank: False
+2026-03-02 16:06:37 | handwriting_ocr           | DEBUG    | Handwriting OCR: 605 chars, confidence=0.978
+2026-03-02 16:06:37 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.978, text_length=605
+2026-03-02 16:06:37 | blank_detector            | DEBUG    | Ink ratio: 0.0264, threshold: 0.01, blank: False
+2026-03-02 16:06:39 | handwriting_ocr           | DEBUG    | Handwriting OCR: 641 chars, confidence=0.969
+2026-03-02 16:06:39 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.969, text_length=641
+2026-03-02 16:06:40 | blank_detector            | DEBUG    | Ink ratio: 0.0441, threshold: 0.01, blank: False
+2026-03-02 16:06:45 | handwriting_ocr           | DEBUG    | Handwriting OCR: 860 chars, confidence=0.977
+2026-03-02 16:06:45 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.977, text_length=860
+2026-03-02 16:06:45 | blank_detector            | DEBUG    | Ink ratio: 0.0573, threshold: 0.01, blank: False
+2026-03-02 16:06:46 | handwriting_ocr           | DEBUG    | Handwriting OCR: 209 chars, confidence=0.982
+2026-03-02 16:06:46 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.982, text_length=209
+2026-03-02 16:06:46 | course_processor          | INFO     | Answer key: 20 questions extracted
+2026-03-02 16:06:50 | answer_key_parser         | WARNING  | OpenAI parse error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************RjYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-03-02 16:06:50 | answer_key_parser         | INFO     | Using equal marks fallback: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
+2026-03-02 16:06:50 | course_processor          | INFO     | Auto-detected marks: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
+2026-03-02 16:06:50 | course_processor          | INFO     | Extracting marks from question paper...
+2026-03-02 16:06:50 | pdf_converter             | DEBUG    | Page 1/2 converted: 2479x3506
+2026-03-02 16:06:51 | pdf_converter             | DEBUG    | Page 2/2 converted: 2480x3507
+2026-03-02 16:06:51 | pdf_converter             | INFO     | Converted 2 pages from questionpaper.pdf
+2026-03-02 16:07:13 | blank_detector            | DEBUG    | Ink ratio: 0.0522, threshold: 0.01, blank: False
+2026-03-02 16:07:18 | handwriting_ocr           | DEBUG    | Handwriting OCR: 2786 chars, confidence=0.946
+2026-03-02 16:07:18 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.946, text_length=2786
+2026-03-02 16:07:38 | blank_detector            | DEBUG    | Ink ratio: 0.0338, threshold: 0.01, blank: False
+2026-03-02 16:07:41 | handwriting_ocr           | DEBUG    | Handwriting OCR: 1873 chars, confidence=0.944
+2026-03-02 16:07:41 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.944, text_length=1873
+2026-03-02 16:07:43 | answer_key_parser         | WARNING  | OpenAI parse error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************RjYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-03-02 16:07:43 | answer_key_parser         | INFO     | Using equal marks fallback: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
+2026-03-02 16:07:43 | course_processor          | INFO     | Auto-detected 16 questions with marks from question paper: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
+2026-03-02 16:07:43 | course_processor          | INFO     | Found 2 student PDFs
+2026-03-02 16:07:43 | course_processor          | INFO     | Processing student 1/2: student_49211003
+2026-03-02 16:07:43 | course_processor          | INFO     |   [student_49211003] Converting PDF to images...
+2026-03-02 16:07:43 | student_processor         | INFO     | Converting PDF to images...
+2026-03-02 16:07:44 | pdf_converter             | DEBUG    | Page 1/34 converted: 2550x3097
+2026-03-02 16:07:44 | pdf_converter             | DEBUG    | Page 2/34 converted: 2550x2182
+2026-03-02 16:07:45 | pdf_converter             | DEBUG    | Page 3/34 converted: 2550x2100
+2026-03-02 16:07:46 | pdf_converter             | DEBUG    | Page 4/34 converted: 2550x2158
+2026-03-02 16:07:46 | pdf_converter             | DEBUG    | Page 5/34 converted: 2550x1963
+2026-03-02 16:07:47 | pdf_converter             | DEBUG    | Page 6/34 converted: 2550x2251
+2026-03-02 16:07:47 | pdf_converter             | DEBUG    | Page 7/34 converted: 2550x1940
+2026-03-02 16:07:48 | pdf_converter             | DEBUG    | Page 8/34 converted: 2550x2207
+2026-03-02 16:07:49 | pdf_converter             | DEBUG    | Page 9/34 converted: 2550x2250
+2026-03-02 16:07:49 | pdf_converter             | DEBUG    | Page 10/34 converted: 2550x2250
+2026-03-02 16:07:50 | pdf_converter             | DEBUG    | Page 11/34 converted: 2550x2100
+2026-03-02 16:07:50 | pdf_converter             | DEBUG    | Page 12/34 converted: 2550x2250
+2026-03-02 16:07:51 | pdf_converter             | DEBUG    | Page 13/34 converted: 2550x1984
+2026-03-02 16:07:52 | pdf_converter             | DEBUG    | Page 14/34 converted: 2550x2250
+2026-03-02 16:07:52 | pdf_converter             | DEBUG    | Page 15/34 converted: 2550x2250
+2026-03-02 16:07:53 | pdf_converter             | DEBUG    | Page 16/34 converted: 2550x2240
+2026-03-02 16:07:53 | pdf_converter             | DEBUG    | Page 17/34 converted: 2550x2125
+2026-03-02 16:07:54 | pdf_converter             | DEBUG    | Page 18/34 converted: 2550x1960
+2026-03-02 16:07:55 | pdf_converter             | DEBUG    | Page 19/34 converted: 2550x2171
+2026-03-02 16:07:55 | pdf_converter             | DEBUG    | Page 20/34 converted: 2550x1984
+2026-03-02 16:07:56 | pdf_converter             | DEBUG    | Page 21/34 converted: 2550x2890
+2026-03-02 16:07:57 | pdf_converter             | DEBUG    | Page 22/34 converted: 2550x3185
+2026-03-02 16:07:57 | pdf_converter             | DEBUG    | Page 23/34 converted: 2550x3060
+2026-03-02 16:07:58 | pdf_converter             | DEBUG    | Page 24/34 converted: 2550x3279
+2026-03-02 16:07:59 | pdf_converter             | DEBUG    | Page 25/34 converted: 2550x3060
+2026-03-02 16:07:59 | pdf_converter             | DEBUG    | Page 26/34 converted: 2550x3176
+2026-03-02 16:08:00 | pdf_converter             | DEBUG    | Page 27/34 converted: 2550x3060
+2026-03-02 16:08:01 | pdf_converter             | DEBUG    | Page 28/34 converted: 2550x3156
+2026-03-02 16:08:02 | pdf_converter             | DEBUG    | Page 29/34 converted: 2550x3060
+2026-03-02 16:08:03 | pdf_converter             | DEBUG    | Page 30/34 converted: 2550x3097
+2026-03-02 16:08:03 | pdf_converter             | DEBUG    | Page 31/34 converted: 2550x3108
+2026-03-02 16:08:04 | pdf_converter             | DEBUG    | Page 32/34 converted: 2330x3300
+2026-03-02 16:08:05 | pdf_converter             | DEBUG    | Page 33/34 converted: 2550x2100
+2026-03-02 16:08:05 | pdf_converter             | DEBUG    | Page 34/34 converted: 2550x1934
+2026-03-02 16:08:05 | pdf_converter             | INFO     | Converted 34 pages from student_49211003.pdf
+2026-03-02 16:08:05 | course_processor          | INFO     |   [student_49211003] Enhancing scans...
+2026-03-02 16:08:05 | student_processor         | INFO     | Enhancing scans...
+2026-03-02 16:08:06 | scan_enhancer             | DEBUG    | Deskewed by 0.89°
+2026-03-02 16:08:25 | scan_enhancer             | DEBUG    | Deskewed by -0.81°
+2026-03-02 16:08:39 | scan_enhancer             | DEBUG    | Deskewed by 1.97°
+2026-03-02 16:09:06 | scan_enhancer             | DEBUG    | Deskewed by 0.81°
+2026-03-02 16:09:58 | scan_enhancer             | DEBUG    | Deskewed by 1.10°
+2026-03-02 16:10:31 | scan_enhancer             | DEBUG    | Deskewed by 0.90°
+2026-03-02 16:11:27 | scan_enhancer             | DEBUG    | Deskewed by 0.92°
+2026-03-02 16:11:41 | scan_enhancer             | DEBUG    | Deskewed by 1.89°
+2026-03-02 16:12:34 | scan_enhancer             | DEBUG    | Deskewed by 0.51°
+2026-03-02 16:12:47 | scan_enhancer             | DEBUG    | Deskewed by 10.97°
+2026-03-02 16:13:24 | scan_enhancer             | DEBUG    | Deskewed by -0.54°
+2026-03-02 16:14:25 | db_manager                | INFO     | Database initialized: sqlite:///:memory:
+2026-03-02 16:14:44 | scan_enhancer             | DEBUG    | Deskewed by -0.96°
+2026-03-02 16:15:43 | scan_enhancer             | DEBUG    | Deskewed by -0.87°
+2026-03-02 16:16:22 | scan_enhancer             | DEBUG    | Deskewed by -0.94°
+2026-03-02 16:16:55 | scan_enhancer             | DEBUG    | Deskewed by 0.74°
+2026-03-02 16:17:07 | course_processor          | INFO     |   [student_49211003] Segmenting answer regions...
+2026-03-02 16:17:07 | student_processor         | INFO     | Segmenting answer regions...
+2026-03-02 16:17:08 | region_segmenter          | INFO     | Segmented page into 2 regions
+2026-03-02 16:17:09 | region_segmenter          | INFO     | Segmented page into 9 regions
+2026-03-02 16:17:10 | region_segmenter          | INFO     | Segmented page into 8 regions
+2026-03-02 16:17:11 | region_segmenter          | INFO     | Segmented page into 7 regions
+2026-03-02 16:17:11 | region_segmenter          | INFO     | Segmented page into 8 regions
+2026-03-02 16:17:12 | region_segmenter          | INFO     | Segmented page into 10 regions
+2026-03-02 16:17:13 | region_segmenter          | INFO     | Segmented page into 10 regions
+2026-03-02 16:17:14 | region_segmenter          | INFO     | Segmented page into 16 regions
+2026-03-02 16:17:14 | region_segmenter          | INFO     | Segmented page into 7 regions
+2026-03-02 16:17:15 | region_segmenter          | INFO     | Segmented page into 6 regions
+2026-03-02 16:17:16 | region_segmenter          | INFO     | Segmented page into 8 regions
+2026-03-02 16:17:17 | region_segmenter          | INFO     | Segmented page into 7 regions
+2026-03-02 16:17:17 | region_segmenter          | INFO     | Segmented page into 5 regions
+2026-03-02 16:17:18 | region_segmenter          | INFO     | Segmented page into 4 regions
+2026-03-02 16:17:19 | region_segmenter          | INFO     | Segmented page into 7 regions
+2026-03-02 16:17:20 | region_segmenter          | INFO     | Segmented page into 6 regions
+2026-03-02 16:17:21 | region_segmenter          | INFO     | Segmented page into 7 regions
+2026-03-02 16:17:21 | region_segmenter          | INFO     | Segmented page into 5 regions
+2026-03-02 16:17:22 | region_segmenter          | INFO     | Segmented page into 7 regions
+2026-03-02 16:17:23 | region_segmenter          | INFO     | Segmented page into 9 regions
+2026-03-02 16:17:24 | region_segmenter          | INFO     | Segmented page into 1 regions
+2026-03-02 16:17:25 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:26 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:27 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:28 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:29 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:30 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:31 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:33 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:34 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:35 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:36 | region_segmenter          | INFO     | No dividers detected, returning full page as single region
+2026-03-02 16:17:36 | region_segmenter          | INFO     | Segmented page into 3 regions
+2026-03-02 16:17:37 | region_segmenter          | INFO     | Segmented page into 5 regions
+2026-03-02 16:17:37 | course_processor          | INFO     |   [student_49211003] Running OCR for question mapping...
+2026-03-02 16:17:37 | student_processor         | INFO     | Running OCR for question mapping...
+2026-03-02 16:17:37 | blank_detector            | DEBUG    | Ink ratio: 0.0236, threshold: 0.01, blank: False
+2026-03-02 16:17:39 | handwriting_ocr           | DEBUG    | Handwriting OCR: 72 chars, confidence=0.790
+2026-03-02 16:17:39 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.790, text_length=72
+2026-03-02 16:17:39 | blank_detector            | DEBUG    | Ink ratio: 0.0394, threshold: 0.01, blank: False
+2026-03-02 16:17:41 | handwriting_ocr           | DEBUG    | Handwriting OCR: 4 chars, confidence=0.847
+2026-03-02 16:17:41 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.847, text_length=4
+2026-03-02 16:17:41 | blank_detector            | DEBUG    | Ink ratio: 0.0008, threshold: 0.01, blank: True
+2026-03-02 16:17:41 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:17:41 | blank_detector            | DEBUG    | Ink ratio: 0.0115, threshold: 0.01, blank: False
+2026-03-02 16:17:42 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:17:43 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:17:43 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:17:43 | blank_detector            | DEBUG    | Ink ratio: 0.0314, threshold: 0.01, blank: False
+2026-03-02 16:17:44 | handwriting_ocr           | DEBUG    | Handwriting OCR: 6 chars, confidence=0.715
+2026-03-02 16:17:44 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.715, text_length=6
+2026-03-02 16:17:44 | blank_detector            | DEBUG    | Ink ratio: 0.0704, threshold: 0.01, blank: False
+2026-03-02 16:17:45 | handwriting_ocr           | DEBUG    | Handwriting OCR: 325 chars, confidence=0.854
+2026-03-02 16:17:45 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.854, text_length=325
+2026-03-02 16:17:45 | blank_detector            | DEBUG    | Ink ratio: 0.0625, threshold: 0.01, blank: False
+2026-03-02 16:17:47 | handwriting_ocr           | DEBUG    | Handwriting OCR: 189 chars, confidence=0.899
+2026-03-02 16:17:47 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.899, text_length=189
+2026-03-02 16:17:47 | blank_detector            | DEBUG    | Ink ratio: 0.0642, threshold: 0.01, blank: False
+2026-03-02 16:17:48 | handwriting_ocr           | DEBUG    | Handwriting OCR: 146 chars, confidence=0.768
+2026-03-02 16:17:48 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:17:49 | multilingual_ocr          | DEBUG    | Multilingual OCR: 146 chars, langs=['en'], confidence=0.758
+2026-03-02 16:17:49 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.768, text_length=146
+2026-03-02 16:17:49 | blank_detector            | DEBUG    | Ink ratio: 0.0185, threshold: 0.01, blank: False
+2026-03-02 16:17:50 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:17:50 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:17:50 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:17:50 | blank_detector            | DEBUG    | Ink ratio: 0.0129, threshold: 0.01, blank: False
+2026-03-02 16:17:51 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:17:52 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:17:52 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:17:52 | blank_detector            | DEBUG    | Ink ratio: 0.0204, threshold: 0.01, blank: False
+2026-03-02 16:17:53 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:17:53 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:17:53 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:17:53 | blank_detector            | DEBUG    | Ink ratio: 0.0570, threshold: 0.01, blank: False
+2026-03-02 16:17:54 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:17:55 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:17:55 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:17:55 | blank_detector            | DEBUG    | Ink ratio: 0.0407, threshold: 0.01, blank: False
+2026-03-02 16:17:56 | handwriting_ocr           | DEBUG    | Handwriting OCR: 71 chars, confidence=0.859
+2026-03-02 16:17:56 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.859, text_length=71
+2026-03-02 16:17:56 | blank_detector            | DEBUG    | Ink ratio: 0.0419, threshold: 0.01, blank: False
+2026-03-02 16:17:57 | handwriting_ocr           | DEBUG    | Handwriting OCR: 36 chars, confidence=0.942
+2026-03-02 16:17:57 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.942, text_length=36
+2026-03-02 16:17:57 | blank_detector            | DEBUG    | Ink ratio: 0.0563, threshold: 0.01, blank: False
+2026-03-02 16:17:59 | handwriting_ocr           | DEBUG    | Handwriting OCR: 165 chars, confidence=0.835
+2026-03-02 16:17:59 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:18:01 | multilingual_ocr          | DEBUG    | Multilingual OCR: 165 chars, langs=['en', 'it', 'es', 'pl'], confidence=0.835
+2026-03-02 16:18:01 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.835, text_length=165
+2026-03-02 16:18:01 | blank_detector            | DEBUG    | Ink ratio: 0.0623, threshold: 0.01, blank: False
+2026-03-02 16:18:03 | handwriting_ocr           | DEBUG    | Handwriting OCR: 141 chars, confidence=0.793
+2026-03-02 16:18:03 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.793, text_length=141
+2026-03-02 16:18:03 | blank_detector            | DEBUG    | Ink ratio: 0.0574, threshold: 0.01, blank: False
+2026-03-02 16:18:04 | handwriting_ocr           | DEBUG    | Handwriting OCR: 166 chars, confidence=0.782
+2026-03-02 16:18:04 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.782, text_length=166
+2026-03-02 16:18:04 | blank_detector            | DEBUG    | Ink ratio: 0.0246, threshold: 0.01, blank: False
+2026-03-02 16:18:05 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:06 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:06 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:06 | blank_detector            | DEBUG    | Ink ratio: 0.0089, threshold: 0.01, blank: True
+2026-03-02 16:18:06 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:18:06 | blank_detector            | DEBUG    | Ink ratio: 0.0032, threshold: 0.01, blank: True
+2026-03-02 16:18:06 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:18:06 | blank_detector            | DEBUG    | Ink ratio: 0.0047, threshold: 0.01, blank: True
+2026-03-02 16:18:06 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:18:06 | blank_detector            | DEBUG    | Ink ratio: 0.0439, threshold: 0.01, blank: False
+2026-03-02 16:18:07 | handwriting_ocr           | DEBUG    | Handwriting OCR: 80 chars, confidence=0.898
+2026-03-02 16:18:07 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.898, text_length=80
+2026-03-02 16:18:07 | blank_detector            | DEBUG    | Ink ratio: 0.0500, threshold: 0.01, blank: False
+2026-03-02 16:18:08 | handwriting_ocr           | DEBUG    | Handwriting OCR: 114 chars, confidence=0.877
+2026-03-02 16:18:08 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:18:09 | multilingual_ocr          | DEBUG    | Multilingual OCR: 114 chars, langs=['en', 'eo'], confidence=0.877
+2026-03-02 16:18:09 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.877, text_length=114
+2026-03-02 16:18:09 | blank_detector            | DEBUG    | Ink ratio: 0.0658, threshold: 0.01, blank: False
+2026-03-02 16:18:11 | handwriting_ocr           | DEBUG    | Handwriting OCR: 320 chars, confidence=0.836
+2026-03-02 16:18:11 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.836, text_length=320
+2026-03-02 16:18:11 | blank_detector            | DEBUG    | Ink ratio: 0.0287, threshold: 0.01, blank: False
+2026-03-02 16:18:12 | handwriting_ocr           | DEBUG    | Handwriting OCR: 10 chars, confidence=0.827
+2026-03-02 16:18:12 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.827, text_length=10
+2026-03-02 16:18:12 | blank_detector            | DEBUG    | Ink ratio: 0.0088, threshold: 0.01, blank: True
+2026-03-02 16:18:12 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:18:12 | blank_detector            | DEBUG    | Ink ratio: 0.0541, threshold: 0.01, blank: False
+2026-03-02 16:18:13 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:13 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:13 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:13 | blank_detector            | DEBUG    | Ink ratio: 0.0595, threshold: 0.01, blank: False
+2026-03-02 16:18:15 | handwriting_ocr           | DEBUG    | Handwriting OCR: 231 chars, confidence=0.834
+2026-03-02 16:18:15 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.834, text_length=231
+2026-03-02 16:18:15 | blank_detector            | DEBUG    | Ink ratio: 0.0667, threshold: 0.01, blank: False
+2026-03-02 16:18:16 | handwriting_ocr           | DEBUG    | Handwriting OCR: 74 chars, confidence=0.852
+2026-03-02 16:18:16 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.852, text_length=74
+2026-03-02 16:18:16 | blank_detector            | DEBUG    | Ink ratio: 0.0322, threshold: 0.01, blank: False
+2026-03-02 16:18:16 | handwriting_ocr           | DEBUG    | Handwriting OCR: 14 chars, confidence=0.859
+2026-03-02 16:18:16 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:18:17 | multilingual_ocr          | DEBUG    | Multilingual OCR: 14 chars, langs=['en'], confidence=0.741
+2026-03-02 16:18:17 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.859, text_length=14
+2026-03-02 16:18:17 | blank_detector            | DEBUG    | Ink ratio: 0.0560, threshold: 0.01, blank: False
+2026-03-02 16:18:18 | handwriting_ocr           | DEBUG    | Handwriting OCR: 108 chars, confidence=0.781
+2026-03-02 16:18:18 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:18:19 | multilingual_ocr          | DEBUG    | Multilingual OCR: 109 chars, langs=['en', 'gd', 'hr'], confidence=0.777
+2026-03-02 16:18:19 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.777, text_length=109
+2026-03-02 16:18:19 | blank_detector            | DEBUG    | Ink ratio: 0.0652, threshold: 0.01, blank: False
+2026-03-02 16:18:20 | handwriting_ocr           | DEBUG    | Handwriting OCR: 97 chars, confidence=0.843
+2026-03-02 16:18:20 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.843, text_length=97
+2026-03-02 16:18:20 | blank_detector            | DEBUG    | Ink ratio: 0.0351, threshold: 0.01, blank: False
+2026-03-02 16:18:21 | handwriting_ocr           | DEBUG    | Handwriting OCR: 11 chars, confidence=0.845
+2026-03-02 16:18:21 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.845, text_length=11
+2026-03-02 16:18:21 | blank_detector            | DEBUG    | Ink ratio: 0.0436, threshold: 0.01, blank: False
+2026-03-02 16:18:22 | handwriting_ocr           | DEBUG    | Handwriting OCR: 122 chars, confidence=0.823
+2026-03-02 16:18:22 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.823, text_length=122
+2026-03-02 16:18:22 | blank_detector            | DEBUG    | Ink ratio: 0.0024, threshold: 0.01, blank: True
+2026-03-02 16:18:22 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:18:22 | blank_detector            | DEBUG    | Ink ratio: 0.0309, threshold: 0.01, blank: False
+2026-03-02 16:18:23 | handwriting_ocr           | DEBUG    | Handwriting OCR: 43 chars, confidence=0.841
+2026-03-02 16:18:23 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.841, text_length=43
+2026-03-02 16:18:23 | blank_detector            | DEBUG    | Ink ratio: 0.0507, threshold: 0.01, blank: False
+2026-03-02 16:18:23 | handwriting_ocr           | DEBUG    | Handwriting OCR: 23 chars, confidence=0.924
+2026-03-02 16:18:23 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.924, text_length=23
+2026-03-02 16:18:24 | blank_detector            | DEBUG    | Ink ratio: 0.0603, threshold: 0.01, blank: False
+2026-03-02 16:18:25 | handwriting_ocr           | DEBUG    | Handwriting OCR: 212 chars, confidence=0.816
+2026-03-02 16:18:25 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.816, text_length=212
+2026-03-02 16:18:25 | blank_detector            | DEBUG    | Ink ratio: 0.0244, threshold: 0.01, blank: False
+2026-03-02 16:18:25 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:26 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:26 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:26 | blank_detector            | DEBUG    | Ink ratio: 0.0644, threshold: 0.01, blank: False
+2026-03-02 16:18:27 | handwriting_ocr           | DEBUG    | Handwriting OCR: 261 chars, confidence=0.850
+2026-03-02 16:18:27 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.850, text_length=261
+2026-03-02 16:18:27 | blank_detector            | DEBUG    | Ink ratio: 0.0278, threshold: 0.01, blank: False
+2026-03-02 16:18:28 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:28 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:28 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:28 | blank_detector            | DEBUG    | Ink ratio: 0.0229, threshold: 0.01, blank: False
+2026-03-02 16:18:29 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:30 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:30 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:30 | blank_detector            | DEBUG    | Ink ratio: 0.0123, threshold: 0.01, blank: False
+2026-03-02 16:18:30 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:31 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:31 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:31 | blank_detector            | DEBUG    | Ink ratio: 0.0091, threshold: 0.01, blank: True
+2026-03-02 16:18:31 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:18:31 | blank_detector            | DEBUG    | Ink ratio: 0.0873, threshold: 0.01, blank: False
+2026-03-02 16:18:32 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:32 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:32 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:32 | blank_detector            | DEBUG    | Ink ratio: 0.0495, threshold: 0.01, blank: False
+2026-03-02 16:18:34 | handwriting_ocr           | DEBUG    | Handwriting OCR: 144 chars, confidence=0.814
+2026-03-02 16:18:34 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:18:35 | multilingual_ocr          | DEBUG    | Multilingual OCR: 144 chars, langs=['en'], confidence=0.814
+2026-03-02 16:18:35 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.814, text_length=144
+2026-03-02 16:18:35 | blank_detector            | DEBUG    | Ink ratio: 0.0594, threshold: 0.01, blank: False
+2026-03-02 16:18:36 | handwriting_ocr           | DEBUG    | Handwriting OCR: 163 chars, confidence=0.825
+2026-03-02 16:18:36 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:18:37 | multilingual_ocr          | DEBUG    | Multilingual OCR: 163 chars, langs=['en'], confidence=0.821
+2026-03-02 16:18:37 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.825, text_length=163
+2026-03-02 16:18:37 | blank_detector            | DEBUG    | Ink ratio: 0.0620, threshold: 0.01, blank: False
+2026-03-02 16:18:38 | handwriting_ocr           | DEBUG    | Handwriting OCR: 218 chars, confidence=0.837
+2026-03-02 16:18:38 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.837, text_length=218
+2026-03-02 16:18:38 | blank_detector            | DEBUG    | Ink ratio: 0.0473, threshold: 0.01, blank: False
+2026-03-02 16:18:39 | handwriting_ocr           | DEBUG    | Handwriting OCR: 16 chars, confidence=0.841
+2026-03-02 16:18:39 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.841, text_length=16
+2026-03-02 16:18:39 | blank_detector            | DEBUG    | Ink ratio: 0.0680, threshold: 0.01, blank: False
+2026-03-02 16:18:40 | handwriting_ocr           | DEBUG    | Handwriting OCR: 36 chars, confidence=0.921
+2026-03-02 16:18:40 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.921, text_length=36
+2026-03-02 16:18:40 | blank_detector            | DEBUG    | Ink ratio: 0.0582, threshold: 0.01, blank: False
+2026-03-02 16:18:41 | handwriting_ocr           | DEBUG    | Handwriting OCR: 31 chars, confidence=0.745
+2026-03-02 16:18:41 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.745, text_length=31
+2026-03-02 16:18:41 | blank_detector            | DEBUG    | Ink ratio: 0.0507, threshold: 0.01, blank: False
+2026-03-02 16:18:42 | handwriting_ocr           | DEBUG    | Handwriting OCR: 31 chars, confidence=0.774
+2026-03-02 16:18:42 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.774, text_length=31
+2026-03-02 16:18:42 | blank_detector            | DEBUG    | Ink ratio: 0.0199, threshold: 0.01, blank: False
+2026-03-02 16:18:42 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:43 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:43 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:43 | blank_detector            | DEBUG    | Ink ratio: 0.0091, threshold: 0.01, blank: True
+2026-03-02 16:18:43 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:18:43 | blank_detector            | DEBUG    | Ink ratio: 0.0060, threshold: 0.01, blank: True
+2026-03-02 16:18:43 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:18:43 | blank_detector            | DEBUG    | Ink ratio: 0.0344, threshold: 0.01, blank: False
+2026-03-02 16:18:44 | handwriting_ocr           | DEBUG    | Handwriting OCR: 55 chars, confidence=0.729
+2026-03-02 16:18:44 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.729, text_length=55
+2026-03-02 16:18:44 | blank_detector            | DEBUG    | Ink ratio: 0.0349, threshold: 0.01, blank: False
+2026-03-02 16:18:45 | handwriting_ocr           | DEBUG    | Handwriting OCR: 20 chars, confidence=0.821
+2026-03-02 16:18:45 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:18:46 | multilingual_ocr          | DEBUG    | Multilingual OCR: 20 chars, langs=['en'], confidence=0.816
+2026-03-02 16:18:46 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.821, text_length=20
+2026-03-02 16:18:46 | blank_detector            | DEBUG    | Ink ratio: 0.0278, threshold: 0.01, blank: False
+2026-03-02 16:18:46 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:47 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:47 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:47 | blank_detector            | DEBUG    | Ink ratio: 0.0466, threshold: 0.01, blank: False
+2026-03-02 16:18:47 | handwriting_ocr           | DEBUG    | Handwriting OCR: 17 chars, confidence=0.910
+2026-03-02 16:18:47 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.910, text_length=17
+2026-03-02 16:18:47 | blank_detector            | DEBUG    | Ink ratio: 0.0465, threshold: 0.01, blank: False
+2026-03-02 16:18:48 | handwriting_ocr           | DEBUG    | Handwriting OCR: 15 chars, confidence=0.856
+2026-03-02 16:18:48 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.856, text_length=15
+2026-03-02 16:18:48 | blank_detector            | DEBUG    | Ink ratio: 0.0566, threshold: 0.01, blank: False
+2026-03-02 16:18:49 | handwriting_ocr           | DEBUG    | Handwriting OCR: 27 chars, confidence=0.929
+2026-03-02 16:18:49 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.929, text_length=27
+2026-03-02 16:18:49 | blank_detector            | DEBUG    | Ink ratio: 0.0409, threshold: 0.01, blank: False
+2026-03-02 16:18:50 | handwriting_ocr           | DEBUG    | Handwriting OCR: 13 chars, confidence=0.925
+2026-03-02 16:18:50 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.925, text_length=13
+2026-03-02 16:18:50 | blank_detector            | DEBUG    | Ink ratio: 0.0414, threshold: 0.01, blank: False
+2026-03-02 16:18:50 | handwriting_ocr           | DEBUG    | Handwriting OCR: 17 chars, confidence=0.884
+2026-03-02 16:18:50 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.884, text_length=17
+2026-03-02 16:18:50 | blank_detector            | DEBUG    | Ink ratio: 0.0259, threshold: 0.01, blank: False
+2026-03-02 16:18:51 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:52 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:52 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:52 | blank_detector            | DEBUG    | Ink ratio: 0.0587, threshold: 0.01, blank: False
+2026-03-02 16:18:53 | handwriting_ocr           | DEBUG    | Handwriting OCR: 128 chars, confidence=0.790
+2026-03-02 16:18:53 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.790, text_length=128
+2026-03-02 16:18:53 | blank_detector            | DEBUG    | Ink ratio: 0.0497, threshold: 0.01, blank: False
+2026-03-02 16:18:54 | handwriting_ocr           | DEBUG    | Handwriting OCR: 41 chars, confidence=0.836
+2026-03-02 16:18:54 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.836, text_length=41
+2026-03-02 16:18:54 | blank_detector            | DEBUG    | Ink ratio: 0.0234, threshold: 0.01, blank: False
+2026-03-02 16:18:54 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:55 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:55 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:55 | blank_detector            | DEBUG    | Ink ratio: 0.0196, threshold: 0.01, blank: False
+2026-03-02 16:18:56 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:56 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:56 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:56 | blank_detector            | DEBUG    | Ink ratio: 0.0193, threshold: 0.01, blank: False
+2026-03-02 16:18:57 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:57 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:57 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:58 | blank_detector            | DEBUG    | Ink ratio: 0.0088, threshold: 0.01, blank: True
+2026-03-02 16:18:58 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:18:58 | blank_detector            | DEBUG    | Ink ratio: 0.0206, threshold: 0.01, blank: False
+2026-03-02 16:18:58 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:18:59 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:18:59 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:18:59 | blank_detector            | DEBUG    | Ink ratio: 0.0514, threshold: 0.01, blank: False
+2026-03-02 16:19:00 | handwriting_ocr           | DEBUG    | Handwriting OCR: 230 chars, confidence=0.825
+2026-03-02 16:19:00 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.825, text_length=230
+2026-03-02 16:19:00 | blank_detector            | DEBUG    | Ink ratio: 0.0573, threshold: 0.01, blank: False
+2026-03-02 16:19:01 | handwriting_ocr           | DEBUG    | Handwriting OCR: 142 chars, confidence=0.897
+2026-03-02 16:19:01 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:19:02 | multilingual_ocr          | DEBUG    | Multilingual OCR: 142 chars, langs=['en'], confidence=0.877
+2026-03-02 16:19:02 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.897, text_length=142
+2026-03-02 16:19:02 | blank_detector            | DEBUG    | Ink ratio: 0.0539, threshold: 0.01, blank: False
+2026-03-02 16:19:03 | handwriting_ocr           | DEBUG    | Handwriting OCR: 194 chars, confidence=0.865
+2026-03-02 16:19:03 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.865, text_length=194
+2026-03-02 16:19:03 | blank_detector            | DEBUG    | Ink ratio: 0.0201, threshold: 0.01, blank: False
+2026-03-02 16:19:04 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:19:05 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:19:05 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:19:05 | blank_detector            | DEBUG    | Ink ratio: 0.0183, threshold: 0.01, blank: False
+2026-03-02 16:19:05 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:19:06 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:19:06 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:19:06 | blank_detector            | DEBUG    | Ink ratio: 0.0084, threshold: 0.01, blank: True
+2026-03-02 16:19:06 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:06 | blank_detector            | DEBUG    | Ink ratio: 0.0017, threshold: 0.01, blank: True
+2026-03-02 16:19:06 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:06 | blank_detector            | DEBUG    | Ink ratio: 0.0115, threshold: 0.01, blank: False
+2026-03-02 16:19:07 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:19:08 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:19:08 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:19:08 | blank_detector            | DEBUG    | Ink ratio: 0.0561, threshold: 0.01, blank: False
+2026-03-02 16:19:09 | handwriting_ocr           | DEBUG    | Handwriting OCR: 204 chars, confidence=0.794
+2026-03-02 16:19:09 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.794, text_length=204
+2026-03-02 16:19:09 | blank_detector            | DEBUG    | Ink ratio: 0.0512, threshold: 0.01, blank: False
+2026-03-02 16:19:10 | handwriting_ocr           | DEBUG    | Handwriting OCR: 203 chars, confidence=0.772
+2026-03-02 16:19:10 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:19:11 | multilingual_ocr          | DEBUG    | Multilingual OCR: 204 chars, langs=['en', 'lus'], confidence=0.791
+2026-03-02 16:19:11 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.791, text_length=204
+2026-03-02 16:19:11 | blank_detector            | DEBUG    | Ink ratio: 0.0548, threshold: 0.01, blank: False
+2026-03-02 16:19:13 | handwriting_ocr           | DEBUG    | Handwriting OCR: 107 chars, confidence=0.848
+2026-03-02 16:19:13 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.848, text_length=107
+2026-03-02 16:19:13 | blank_detector            | DEBUG    | Ink ratio: 0.0088, threshold: 0.01, blank: True
+2026-03-02 16:19:13 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:13 | blank_detector            | DEBUG    | Ink ratio: 0.0345, threshold: 0.01, blank: False
+2026-03-02 16:19:13 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:19:14 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:19:14 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:19:14 | blank_detector            | DEBUG    | Ink ratio: 0.0496, threshold: 0.01, blank: False
+2026-03-02 16:19:15 | handwriting_ocr           | DEBUG    | Handwriting OCR: 145 chars, confidence=0.865
+2026-03-02 16:19:15 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.865, text_length=145
+2026-03-02 16:19:15 | blank_detector            | DEBUG    | Ink ratio: 0.0506, threshold: 0.01, blank: False
+2026-03-02 16:19:16 | handwriting_ocr           | DEBUG    | Handwriting OCR: 117 chars, confidence=0.846
+2026-03-02 16:19:16 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.846, text_length=117
+2026-03-02 16:19:16 | blank_detector            | DEBUG    | Ink ratio: 0.0524, threshold: 0.01, blank: False
+2026-03-02 16:19:17 | handwriting_ocr           | DEBUG    | Handwriting OCR: 143 chars, confidence=0.795
+2026-03-02 16:19:17 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.795, text_length=143
+2026-03-02 16:19:17 | blank_detector            | DEBUG    | Ink ratio: 0.0380, threshold: 0.01, blank: False
+2026-03-02 16:19:18 | handwriting_ocr           | DEBUG    | Handwriting OCR: 14 chars, confidence=0.842
+2026-03-02 16:19:18 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.842, text_length=14
+2026-03-02 16:19:18 | blank_detector            | DEBUG    | Ink ratio: 0.0299, threshold: 0.01, blank: False
+2026-03-02 16:19:19 | handwriting_ocr           | DEBUG    | Handwriting OCR: 1 chars, confidence=0.998
+2026-03-02 16:19:19 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:19:19 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:19:19 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.998, text_length=1
+2026-03-02 16:19:19 | blank_detector            | DEBUG    | Ink ratio: 0.0531, threshold: 0.01, blank: False
+2026-03-02 16:19:20 | handwriting_ocr           | DEBUG    | Handwriting OCR: 96 chars, confidence=0.818
+2026-03-02 16:19:20 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:19:21 | multilingual_ocr          | DEBUG    | Multilingual OCR: 96 chars, langs=['en'], confidence=0.821
+2026-03-02 16:19:21 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.821, text_length=96
+2026-03-02 16:19:21 | blank_detector            | DEBUG    | Ink ratio: 0.0084, threshold: 0.01, blank: True
+2026-03-02 16:19:21 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:21 | blank_detector            | DEBUG    | Ink ratio: 0.0101, threshold: 0.01, blank: False
+2026-03-02 16:19:22 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:19:23 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:19:23 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:19:23 | blank_detector            | DEBUG    | Ink ratio: 0.0048, threshold: 0.01, blank: True
+2026-03-02 16:19:23 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:23 | blank_detector            | DEBUG    | Ink ratio: 0.0501, threshold: 0.01, blank: False
+2026-03-02 16:19:24 | handwriting_ocr           | DEBUG    | Handwriting OCR: 100 chars, confidence=0.840
+2026-03-02 16:19:24 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.840, text_length=100
+2026-03-02 16:19:24 | blank_detector            | DEBUG    | Ink ratio: 0.0520, threshold: 0.01, blank: False
+2026-03-02 16:19:29 | handwriting_ocr           | DEBUG    | Handwriting OCR: 474 chars, confidence=0.811
+2026-03-02 16:19:29 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.811, text_length=474
+2026-03-02 16:19:29 | blank_detector            | DEBUG    | Ink ratio: 0.0178, threshold: 0.01, blank: False
+2026-03-02 16:19:30 | handwriting_ocr           | DEBUG    | Handwriting OCR: 3 chars, confidence=0.858
+2026-03-02 16:19:30 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.858, text_length=3
+2026-03-02 16:19:30 | blank_detector            | DEBUG    | Ink ratio: 0.0096, threshold: 0.01, blank: True
+2026-03-02 16:19:30 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:30 | blank_detector            | DEBUG    | Ink ratio: 0.0038, threshold: 0.01, blank: True
+2026-03-02 16:19:30 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:30 | blank_detector            | DEBUG    | Ink ratio: 0.0681, threshold: 0.01, blank: False
+2026-03-02 16:19:30 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:19:31 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:19:31 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:19:31 | blank_detector            | DEBUG    | Ink ratio: 0.0561, threshold: 0.01, blank: False
+2026-03-02 16:19:34 | handwriting_ocr           | DEBUG    | Handwriting OCR: 385 chars, confidence=0.863
+2026-03-02 16:19:34 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.863, text_length=385
+2026-03-02 16:19:34 | blank_detector            | DEBUG    | Ink ratio: 0.0591, threshold: 0.01, blank: False
+2026-03-02 16:19:35 | handwriting_ocr           | DEBUG    | Handwriting OCR: 249 chars, confidence=0.838
+2026-03-02 16:19:35 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.838, text_length=249
+2026-03-02 16:19:35 | blank_detector            | DEBUG    | Ink ratio: 0.0288, threshold: 0.01, blank: False
+2026-03-02 16:19:36 | handwriting_ocr           | DEBUG    | Handwriting OCR: 7 chars, confidence=0.820
+2026-03-02 16:19:36 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.820, text_length=7
+2026-03-02 16:19:36 | blank_detector            | DEBUG    | Ink ratio: 0.0075, threshold: 0.01, blank: True
+2026-03-02 16:19:36 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:36 | blank_detector            | DEBUG    | Ink ratio: 0.0039, threshold: 0.01, blank: True
+2026-03-02 16:19:36 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:36 | blank_detector            | DEBUG    | Ink ratio: 0.0448, threshold: 0.01, blank: False
+2026-03-02 16:19:37 | handwriting_ocr           | DEBUG    | Handwriting OCR: 197 chars, confidence=0.860
+2026-03-02 16:19:37 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.860, text_length=197
+2026-03-02 16:19:37 | blank_detector            | DEBUG    | Ink ratio: 0.0573, threshold: 0.01, blank: False
+2026-03-02 16:19:39 | handwriting_ocr           | DEBUG    | Handwriting OCR: 342 chars, confidence=0.805
+2026-03-02 16:19:39 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.805, text_length=342
+2026-03-02 16:19:39 | blank_detector            | DEBUG    | Ink ratio: 0.0084, threshold: 0.01, blank: True
+2026-03-02 16:19:39 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:39 | blank_detector            | DEBUG    | Ink ratio: 0.0277, threshold: 0.01, blank: False
+2026-03-02 16:19:40 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:19:41 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:19:41 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:19:41 | blank_detector            | DEBUG    | Ink ratio: 0.0561, threshold: 0.01, blank: False
+2026-03-02 16:19:42 | handwriting_ocr           | DEBUG    | Handwriting OCR: 215 chars, confidence=0.851
+2026-03-02 16:19:42 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:19:44 | multilingual_ocr          | DEBUG    | Multilingual OCR: 215 chars, langs=['en'], confidence=0.851
+2026-03-02 16:19:44 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.851, text_length=215
+2026-03-02 16:19:44 | blank_detector            | DEBUG    | Ink ratio: 0.0349, threshold: 0.01, blank: False
+2026-03-02 16:19:45 | handwriting_ocr           | DEBUG    | Handwriting OCR: 28 chars, confidence=0.845
+2026-03-02 16:19:45 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.845, text_length=28
+2026-03-02 16:19:45 | blank_detector            | DEBUG    | Ink ratio: 0.0515, threshold: 0.01, blank: False
+2026-03-02 16:19:46 | handwriting_ocr           | DEBUG    | Handwriting OCR: 92 chars, confidence=0.779
+2026-03-02 16:19:46 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:19:47 | multilingual_ocr          | DEBUG    | Multilingual OCR: 92 chars, langs=['en'], confidence=0.779
+2026-03-02 16:19:47 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.779, text_length=92
+2026-03-02 16:19:47 | blank_detector            | DEBUG    | Ink ratio: 0.0555, threshold: 0.01, blank: False
+2026-03-02 16:19:48 | handwriting_ocr           | DEBUG    | Handwriting OCR: 84 chars, confidence=0.832
+2026-03-02 16:19:48 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.832, text_length=84
+2026-03-02 16:19:48 | blank_detector            | DEBUG    | Ink ratio: 0.0334, threshold: 0.01, blank: False
+2026-03-02 16:19:48 | handwriting_ocr           | DEBUG    | Handwriting OCR: 8 chars, confidence=0.775
+2026-03-02 16:19:48 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.775, text_length=8
+2026-03-02 16:19:48 | blank_detector            | DEBUG    | Ink ratio: 0.0359, threshold: 0.01, blank: False
+2026-03-02 16:19:49 | handwriting_ocr           | DEBUG    | Handwriting OCR: 93 chars, confidence=0.808
+2026-03-02 16:19:49 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.808, text_length=93
+2026-03-02 16:19:49 | blank_detector            | DEBUG    | Ink ratio: 0.2309, threshold: 0.01, blank: False
+2026-03-02 16:19:50 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:19:51 | multilingual_ocr          | DEBUG    | Multilingual OCR: 1 chars, langs=[], confidence=0.761
+2026-03-02 16:19:51 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual_fallback, confidence=0.761, text_length=1
+2026-03-02 16:19:51 | blank_detector            | DEBUG    | Ink ratio: 0.0534, threshold: 0.01, blank: False
+2026-03-02 16:19:52 | handwriting_ocr           | DEBUG    | Handwriting OCR: 197 chars, confidence=0.853
+2026-03-02 16:19:52 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:19:54 | multilingual_ocr          | DEBUG    | Multilingual OCR: 197 chars, langs=['en', 'ga'], confidence=0.853
+2026-03-02 16:19:54 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.853, text_length=197
+2026-03-02 16:19:54 | blank_detector            | DEBUG    | Ink ratio: 0.0350, threshold: 0.01, blank: False
+2026-03-02 16:19:55 | handwriting_ocr           | DEBUG    | Handwriting OCR: 28 chars, confidence=0.801
+2026-03-02 16:19:55 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.801, text_length=28
+2026-03-02 16:19:55 | blank_detector            | DEBUG    | Ink ratio: 0.0535, threshold: 0.01, blank: False
+2026-03-02 16:19:56 | handwriting_ocr           | DEBUG    | Handwriting OCR: 79 chars, confidence=0.803
+2026-03-02 16:19:56 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.803, text_length=79
+2026-03-02 16:19:56 | blank_detector            | DEBUG    | Ink ratio: 0.0509, threshold: 0.01, blank: False
+2026-03-02 16:19:57 | handwriting_ocr           | DEBUG    | Handwriting OCR: 78 chars, confidence=0.833
+2026-03-02 16:19:57 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:19:58 | multilingual_ocr          | DEBUG    | Multilingual OCR: 78 chars, langs=['en'], confidence=0.833
+2026-03-02 16:19:58 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.833, text_length=78
+2026-03-02 16:19:58 | blank_detector            | DEBUG    | Ink ratio: 0.0412, threshold: 0.01, blank: False
+2026-03-02 16:19:59 | handwriting_ocr           | DEBUG    | Handwriting OCR: 87 chars, confidence=0.745
+2026-03-02 16:19:59 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.745, text_length=87
+2026-03-02 16:19:59 | blank_detector            | DEBUG    | Ink ratio: 0.0013, threshold: 0.01, blank: True
+2026-03-02 16:19:59 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:19:59 | blank_detector            | DEBUG    | Ink ratio: 0.0435, threshold: 0.01, blank: False
+2026-03-02 16:20:00 | handwriting_ocr           | DEBUG    | Handwriting OCR: 151 chars, confidence=0.851
+2026-03-02 16:20:00 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:20:01 | multilingual_ocr          | DEBUG    | Multilingual OCR: 151 chars, langs=['en'], confidence=0.851
+2026-03-02 16:20:01 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.851, text_length=151
+2026-03-02 16:20:01 | blank_detector            | DEBUG    | Ink ratio: 0.0527, threshold: 0.01, blank: False
+2026-03-02 16:20:02 | handwriting_ocr           | DEBUG    | Handwriting OCR: 128 chars, confidence=0.797
+2026-03-02 16:20:02 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.797, text_length=128
+2026-03-02 16:20:02 | blank_detector            | DEBUG    | Ink ratio: 0.0550, threshold: 0.01, blank: False
+2026-03-02 16:20:03 | handwriting_ocr           | DEBUG    | Handwriting OCR: 72 chars, confidence=0.829
+2026-03-02 16:20:03 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.829, text_length=72
+2026-03-02 16:20:03 | blank_detector            | DEBUG    | Ink ratio: 0.0564, threshold: 0.01, blank: False
+2026-03-02 16:20:04 | handwriting_ocr           | DEBUG    | Handwriting OCR: 137 chars, confidence=0.824
+2026-03-02 16:20:04 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.824, text_length=137
+2026-03-02 16:20:04 | blank_detector            | DEBUG    | Ink ratio: 0.0319, threshold: 0.01, blank: False
+2026-03-02 16:20:05 | handwriting_ocr           | DEBUG    | Handwriting OCR: 10 chars, confidence=0.522
+2026-03-02 16:20:05 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:20:06 | multilingual_ocr          | DEBUG    | Multilingual OCR: 11 chars, langs=['en'], confidence=0.781
+2026-03-02 16:20:06 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.781, text_length=11
+2026-03-02 16:20:06 | blank_detector            | DEBUG    | Ink ratio: 0.0085, threshold: 0.01, blank: True
+2026-03-02 16:20:06 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:20:06 | blank_detector            | DEBUG    | Ink ratio: 0.0560, threshold: 0.01, blank: False
+2026-03-02 16:20:07 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:20:07 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:20:07 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:20:07 | blank_detector            | DEBUG    | Ink ratio: 0.0617, threshold: 0.01, blank: False
+2026-03-02 16:20:09 | handwriting_ocr           | DEBUG    | Handwriting OCR: 468 chars, confidence=0.819
+2026-03-02 16:20:09 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:20:11 | multilingual_ocr          | DEBUG    | Multilingual OCR: 475 chars, langs=['en', 'gd', 'fr', 'ro', 'de'], confidence=0.811
+2026-03-02 16:20:11 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.811, text_length=475
+2026-03-02 16:20:11 | blank_detector            | DEBUG    | Ink ratio: 0.0321, threshold: 0.01, blank: False
+2026-03-02 16:20:12 | handwriting_ocr           | DEBUG    | Handwriting OCR: 10 chars, confidence=0.645
+2026-03-02 16:20:12 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.645, text_length=10
+2026-03-02 16:20:12 | blank_detector            | DEBUG    | Ink ratio: 0.0392, threshold: 0.01, blank: False
+2026-03-02 16:20:13 | handwriting_ocr           | DEBUG    | Handwriting OCR: 21 chars, confidence=0.781
+2026-03-02 16:20:13 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.781, text_length=21
+2026-03-02 16:20:13 | blank_detector            | DEBUG    | Ink ratio: 0.0490, threshold: 0.01, blank: False
+2026-03-02 16:20:14 | handwriting_ocr           | DEBUG    | Handwriting OCR: 185 chars, confidence=0.827
+2026-03-02 16:20:14 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:20:15 | multilingual_ocr          | DEBUG    | Multilingual OCR: 185 chars, langs=['en', 'gd'], confidence=0.827
+2026-03-02 16:20:15 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.827, text_length=185
+2026-03-02 16:20:15 | blank_detector            | DEBUG    | Ink ratio: 0.0147, threshold: 0.01, blank: False
+2026-03-02 16:20:16 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:20:16 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:20:16 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:20:17 | blank_detector            | DEBUG    | Ink ratio: 0.0536, threshold: 0.01, blank: False
+2026-03-02 16:20:18 | handwriting_ocr           | DEBUG    | Handwriting OCR: 166 chars, confidence=0.753
+2026-03-02 16:20:18 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.753, text_length=166
+2026-03-02 16:20:18 | blank_detector            | DEBUG    | Ink ratio: 0.0559, threshold: 0.01, blank: False
+2026-03-02 16:20:19 | handwriting_ocr           | DEBUG    | Handwriting OCR: 226 chars, confidence=0.872
+2026-03-02 16:20:19 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.872, text_length=226
+2026-03-02 16:20:19 | blank_detector            | DEBUG    | Ink ratio: 0.0350, threshold: 0.01, blank: False
+2026-03-02 16:20:19 | handwriting_ocr           | DEBUG    | Handwriting OCR: 15 chars, confidence=0.925
+2026-03-02 16:20:19 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.925, text_length=15
+2026-03-02 16:20:19 | blank_detector            | DEBUG    | Ink ratio: 0.0470, threshold: 0.01, blank: False
+2026-03-02 16:20:20 | handwriting_ocr           | DEBUG    | Handwriting OCR: 43 chars, confidence=0.810
+2026-03-02 16:20:20 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:20:21 | multilingual_ocr          | DEBUG    | Multilingual OCR: 43 chars, langs=['en'], confidence=0.810
+2026-03-02 16:20:21 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.810, text_length=43
+2026-03-02 16:20:21 | blank_detector            | DEBUG    | Ink ratio: 0.0478, threshold: 0.01, blank: False
+2026-03-02 16:20:22 | handwriting_ocr           | DEBUG    | Handwriting OCR: 138 chars, confidence=0.772
+2026-03-02 16:20:22 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:20:23 | multilingual_ocr          | DEBUG    | Multilingual OCR: 138 chars, langs=['en', 'cy'], confidence=0.784
+2026-03-02 16:20:23 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.784, text_length=138
+2026-03-02 16:20:23 | blank_detector            | DEBUG    | Ink ratio: 0.0083, threshold: 0.01, blank: True
+2026-03-02 16:20:23 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:20:23 | blank_detector            | DEBUG    | Ink ratio: 0.0248, threshold: 0.01, blank: False
+2026-03-02 16:20:24 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:20:24 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:20:24 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:20:24 | blank_detector            | DEBUG    | Ink ratio: 0.0458, threshold: 0.01, blank: False
+2026-03-02 16:20:25 | handwriting_ocr           | DEBUG    | Handwriting OCR: 136 chars, confidence=0.882
+2026-03-02 16:20:25 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.882, text_length=136
+2026-03-02 16:20:25 | blank_detector            | DEBUG    | Ink ratio: 0.0387, threshold: 0.01, blank: False
+2026-03-02 16:20:26 | handwriting_ocr           | DEBUG    | Handwriting OCR: 21 chars, confidence=0.877
+2026-03-02 16:20:26 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.877, text_length=21
+2026-03-02 16:20:26 | blank_detector            | DEBUG    | Ink ratio: 0.0436, threshold: 0.01, blank: False
+2026-03-02 16:20:27 | handwriting_ocr           | DEBUG    | Handwriting OCR: 29 chars, confidence=0.907
+2026-03-02 16:20:27 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.907, text_length=29
+2026-03-02 16:20:27 | blank_detector            | DEBUG    | Ink ratio: 0.0361, threshold: 0.01, blank: False
+2026-03-02 16:20:28 | handwriting_ocr           | DEBUG    | Handwriting OCR: 18 chars, confidence=0.835
+2026-03-02 16:20:28 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.835, text_length=18
+2026-03-02 16:20:28 | blank_detector            | DEBUG    | Ink ratio: 0.0458, threshold: 0.01, blank: False
+2026-03-02 16:20:29 | handwriting_ocr           | DEBUG    | Handwriting OCR: 36 chars, confidence=0.803
+2026-03-02 16:20:29 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:20:30 | multilingual_ocr          | DEBUG    | Multilingual OCR: 36 chars, langs=['en'], confidence=0.782
+2026-03-02 16:20:30 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.803, text_length=36
+2026-03-02 16:20:30 | blank_detector            | DEBUG    | Ink ratio: 0.0492, threshold: 0.01, blank: False
+2026-03-02 16:20:30 | handwriting_ocr           | DEBUG    | Handwriting OCR: 33 chars, confidence=0.756
+2026-03-02 16:20:30 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.756, text_length=33
+2026-03-02 16:20:30 | blank_detector            | DEBUG    | Ink ratio: 0.0564, threshold: 0.01, blank: False
+2026-03-02 16:20:31 | handwriting_ocr           | DEBUG    | Handwriting OCR: 147 chars, confidence=0.851
+2026-03-02 16:20:31 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:20:33 | multilingual_ocr          | DEBUG    | Multilingual OCR: 147 chars, langs=['en'], confidence=0.846
+2026-03-02 16:20:33 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.851, text_length=147
+2026-03-02 16:20:33 | blank_detector            | DEBUG    | Ink ratio: 0.0078, threshold: 0.01, blank: True
+2026-03-02 16:20:33 | ocr_router                | INFO     | Region detected as blank
+2026-03-02 16:20:33 | blank_detector            | DEBUG    | Ink ratio: 0.0360, threshold: 0.01, blank: False
+2026-03-02 16:20:37 | handwriting_ocr           | DEBUG    | Handwriting OCR: 344 chars, confidence=0.748
+2026-03-02 16:20:37 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.748, text_length=344
+2026-03-02 16:20:37 | blank_detector            | DEBUG    | Ink ratio: 0.0534, threshold: 0.01, blank: False
+2026-03-02 16:20:41 | handwriting_ocr           | DEBUG    | Handwriting OCR: 579 chars, confidence=0.812
+2026-03-02 16:20:41 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.812, text_length=579
+2026-03-02 16:20:41 | blank_detector            | DEBUG    | Ink ratio: 0.0471, threshold: 0.01, blank: False
+2026-03-02 16:20:44 | handwriting_ocr           | DEBUG    | Handwriting OCR: 576 chars, confidence=0.794
+2026-03-02 16:20:44 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.794, text_length=576
+2026-03-02 16:20:45 | blank_detector            | DEBUG    | Ink ratio: 0.0514, threshold: 0.01, blank: False
+2026-03-02 16:20:49 | handwriting_ocr           | DEBUG    | Handwriting OCR: 601 chars, confidence=0.770
+2026-03-02 16:20:49 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.770, text_length=601
+2026-03-02 16:20:49 | blank_detector            | DEBUG    | Ink ratio: 0.0495, threshold: 0.01, blank: False
+2026-03-02 16:20:52 | handwriting_ocr           | DEBUG    | Handwriting OCR: 591 chars, confidence=0.815
+2026-03-02 16:20:52 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:20:56 | multilingual_ocr          | DEBUG    | Multilingual OCR: 591 chars, langs=['en', 'pl', 'da'], confidence=0.811
+2026-03-02 16:20:56 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.815, text_length=591
+2026-03-02 16:20:56 | blank_detector            | DEBUG    | Ink ratio: 0.0492, threshold: 0.01, blank: False
+2026-03-02 16:21:00 | handwriting_ocr           | DEBUG    | Handwriting OCR: 519 chars, confidence=0.779
+2026-03-02 16:21:00 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:21:03 | multilingual_ocr          | DEBUG    | Multilingual OCR: 521 chars, langs=['en', 'it', 'ca'], confidence=0.778
+2026-03-02 16:21:03 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.778, text_length=521
+2026-03-02 16:21:04 | blank_detector            | DEBUG    | Ink ratio: 0.0451, threshold: 0.01, blank: False
+2026-03-02 16:21:07 | handwriting_ocr           | DEBUG    | Handwriting OCR: 408 chars, confidence=0.810
+2026-03-02 16:21:07 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.810, text_length=408
+2026-03-02 16:21:07 | blank_detector            | DEBUG    | Ink ratio: 0.0609, threshold: 0.01, blank: False
+2026-03-02 16:21:11 | handwriting_ocr           | DEBUG    | Handwriting OCR: 686 chars, confidence=0.797
+2026-03-02 16:21:11 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.797, text_length=686
+2026-03-02 16:21:12 | blank_detector            | DEBUG    | Ink ratio: 0.0525, threshold: 0.01, blank: False
+2026-03-02 16:21:15 | handwriting_ocr           | DEBUG    | Handwriting OCR: 727 chars, confidence=0.774
+2026-03-02 16:21:15 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:21:19 | multilingual_ocr          | DEBUG    | Multilingual OCR: 722 chars, langs=['en'], confidence=0.778
+2026-03-02 16:21:19 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.778, text_length=722
+2026-03-02 16:21:19 | blank_detector            | DEBUG    | Ink ratio: 0.0546, threshold: 0.01, blank: False
+2026-03-02 16:21:23 | handwriting_ocr           | DEBUG    | Handwriting OCR: 746 chars, confidence=0.788
+2026-03-02 16:21:23 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:21:27 | multilingual_ocr          | DEBUG    | Multilingual OCR: 744 chars, langs=['en', 'gd', 'pl', 'ar'], confidence=0.788
+2026-03-02 16:21:27 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.788, text_length=746
+2026-03-02 16:21:28 | blank_detector            | DEBUG    | Ink ratio: 0.0617, threshold: 0.01, blank: False
+2026-03-02 16:21:32 | handwriting_ocr           | DEBUG    | Handwriting OCR: 857 chars, confidence=0.811
+2026-03-02 16:21:32 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:21:36 | multilingual_ocr          | DEBUG    | Multilingual OCR: 860 chars, langs=['en', 'ht', 'it', 'pl', 'om'], confidence=0.805
+2026-03-02 16:21:36 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.805, text_length=860
+2026-03-02 16:21:37 | blank_detector            | DEBUG    | Ink ratio: 0.0572, threshold: 0.01, blank: False
+2026-03-02 16:21:41 | handwriting_ocr           | DEBUG    | Handwriting OCR: 748 chars, confidence=0.800
+2026-03-02 16:21:41 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:21:46 | multilingual_ocr          | DEBUG    | Multilingual OCR: 745 chars, langs=['en', 'ceb', 'sv', 'la', 'fi'], confidence=0.803
+2026-03-02 16:21:46 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.803, text_length=745
+2026-03-02 16:21:46 | blank_detector            | DEBUG    | Ink ratio: 0.0141, threshold: 0.01, blank: False
+2026-03-02 16:21:47 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:21:47 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:21:47 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:21:47 | blank_detector            | DEBUG    | Ink ratio: 0.0717, threshold: 0.01, blank: False
+2026-03-02 16:21:49 | handwriting_ocr           | DEBUG    | Handwriting OCR: 468 chars, confidence=0.809
+2026-03-02 16:21:49 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.809, text_length=468
+2026-03-02 16:21:49 | blank_detector            | DEBUG    | Ink ratio: 0.0600, threshold: 0.01, blank: False
+2026-03-02 16:21:51 | handwriting_ocr           | DEBUG    | Handwriting OCR: 389 chars, confidence=0.778
+2026-03-02 16:21:51 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.778, text_length=389
+2026-03-02 16:21:51 | blank_detector            | DEBUG    | Ink ratio: 0.1076, threshold: 0.01, blank: False
+2026-03-02 16:21:52 | handwriting_ocr           | DEBUG    | Handwriting OCR: 0 chars, confidence=0.000
+2026-03-02 16:21:52 | multilingual_ocr          | DEBUG    | Multilingual OCR: 0 chars, langs=[], confidence=0.000
+2026-03-02 16:21:52 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.000, text_length=0
+2026-03-02 16:21:52 | blank_detector            | DEBUG    | Ink ratio: 0.0654, threshold: 0.01, blank: False
+2026-03-02 16:21:54 | handwriting_ocr           | DEBUG    | Handwriting OCR: 522 chars, confidence=0.780
+2026-03-02 16:21:54 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.780, text_length=522
+2026-03-02 16:21:54 | blank_detector            | DEBUG    | Ink ratio: 0.0655, threshold: 0.01, blank: False
+2026-03-02 16:21:56 | handwriting_ocr           | DEBUG    | Handwriting OCR: 148 chars, confidence=0.842
+2026-03-02 16:21:56 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:21:57 | multilingual_ocr          | DEBUG    | Multilingual OCR: 148 chars, langs=['en', 'la'], confidence=0.828
+2026-03-02 16:21:57 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.842, text_length=148
+2026-03-02 16:21:57 | blank_detector            | DEBUG    | Ink ratio: 0.0317, threshold: 0.01, blank: False
+2026-03-02 16:21:57 | handwriting_ocr           | DEBUG    | Handwriting OCR: 10 chars, confidence=0.513
+2026-03-02 16:21:57 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:21:58 | multilingual_ocr          | DEBUG    | Multilingual OCR: 11 chars, langs=['en'], confidence=0.758
+2026-03-02 16:21:58 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.758, text_length=11
+2026-03-02 16:21:58 | blank_detector            | DEBUG    | Ink ratio: 0.0419, threshold: 0.01, blank: False
+2026-03-02 16:21:59 | handwriting_ocr           | DEBUG    | Handwriting OCR: 115 chars, confidence=0.691
+2026-03-02 16:21:59 | ocr_router                | INFO     | Non-Latin script detected, trying multilingual OCR
+2026-03-02 16:22:01 | multilingual_ocr          | DEBUG    | Multilingual OCR: 113 chars, langs=['en', 'so'], confidence=0.702
+2026-03-02 16:22:01 | ocr_router                | INFO     | OCR result: engine=vision_api_multilingual, confidence=0.702, text_length=113
+2026-03-02 16:22:01 | question_mapper           | INFO     | Mapped 168 regions to 12 questions: [1, 2, 3, 4, 5, 8, 10, 13, 16, 17, 19, 20]
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q1: merged 7 regions → 2550x9791
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q16: merged 18 regions → 2550x4974
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q20: merged 4 regions → 2550x1223
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q2: merged 18 regions → 2550x13873
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q3: merged 7 regions → 2550x1479
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q5: merged 8 regions → 2550x1901
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q17: merged 44 regions → 2550x10167
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q4: merged 24 regions → 2550x17398
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q10: merged 6 regions → 2550x1889
+2026-03-02 16:22:01 | question_mapper           | DEBUG    | Q8: merged 2 regions → 2550x1136
+2026-03-02 16:22:02 | question_mapper           | DEBUG    | Q19: merged 21 regions → 2550x13973
+2026-03-02 16:22:02 | question_mapper           | DEBUG    | Q13: merged 9 regions → 2550x7334
+2026-03-02 16:22:02 | course_processor          | INFO     |   [student_49211003] Evaluating Question 1...
+2026-03-02 16:22:02 | student_processor         | INFO     | Evaluating Question 1...
+2026-03-02 16:22:02 | evaluator_orchestrator    | INFO     | Q1: Running OCR...
+2026-03-02 16:22:03 | blank_detector            | DEBUG    | Ink ratio: 0.0423, threshold: 0.01, blank: False
+2026-03-02 16:22:12 | handwriting_ocr           | DEBUG    | Handwriting OCR: 1253 chars, confidence=0.801
+2026-03-02 16:22:12 | ocr_router                | INFO     | OCR result: engine=vision_api_document, confidence=0.801, text_length=1253
+2026-03-02 16:22:12 | evaluator_orchestrator    | INFO     | Q1: Classifying content...
+2026-03-02 16:22:13 | content_classifier        | DEBUG    | Content classified as: text (scores: {'text': 20.6, 'math': 12.0, 'chemistry_structure': 0.0, 'chemistry_equation': 3.0, 'diagram': 5.0, 'code': 0.0})
+2026-03-02 16:22:13 | evaluator_orchestrator    | INFO     | Q1: Running text analyzer...
+2026-03-02 16:22:15 | retry_utils               | WARNING  | _compute_similarity attempt 1/3 failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************RjYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}. Retrying in 2.0s...
+2026-03-02 16:22:18 | retry_utils               | WARNING  | _compute_similarity attempt 2/3 failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************RjYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}. Retrying in 4.0s...
+2026-03-02 16:22:24 | retry_utils               | ERROR    | _compute_similarity failed after 3 attempts: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************RjYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-03-02 16:22:24 | text_analyzer             | ERROR    | Text analysis failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************RjYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+2026-03-02 16:22:24 | evaluator_orchestrator    | INFO     | Q1: Running GPT-4o final evaluation...
+2026-03-02 16:22:38 | retry_utils               | WARNING  | evaluate_answer attempt 1/3 failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************RjYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}. Retrying in 2.0s...
+2026-03-02 17:17:16 | db_manager                | INFO     | Database initialized: sqlite:///C:\Users\karta\OneDrive\Desktop\AI_Checker\exam_checker\exam_checker.db
+2026-03-02 17:18:13 | db_manager                | INFO     | Database initialized: sqlite:///C:\Users\karta\OneDrive\Desktop\AI_Checker\exam_checker\exam_checker.db
+2026-03-02 17:19:12 | db_manager                | INFO     | Database initialized: sqlite:///C:\Users\karta\OneDrive\Desktop\AI_Checker\exam_checker\exam_checker.db

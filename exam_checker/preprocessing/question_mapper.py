@@ -10,13 +10,20 @@ from utils.logger import get_logger
 
 logger = get_logger("question_mapper")
 
-# Patterns to detect question numbers
+# Patterns to detect question numbers — robust against OCR noise
 QUESTION_PATTERNS = [
-    r"(?:^|\n)\s*(?:Q|Que|Question|Ques)[\s.:)#-]*(\d+)",
-    r"(?:^|\n)\s*(\d+)\s*[.)]\s",
-    r"(?:^|\n)\s*(?:Ans|Answer|A)[\s.:)#-]*(\d+)",
-    r"(?:^|\n)\s*\((\d+)\)",
-    r"(?:^|\n)\s*(\d+)\s*[-–—]\s",
+    # Q1, Q.1, Que 1, Question 1, Ques-1 etc. (tolerant of leading noise)
+    r"(?:^|\n)[^\n]{0,15}?\b(?:Q|Que|Question|Ques)[.\s:)#-]*(\d+)",
+    # Ans 1, Answer 1, A.1 etc.
+    r"(?:^|\n)[^\n]{0,15}?\b(?:Ans|Answer)[.\s:)#-]*(\d+)",
+    # Standalone number with delimiter: "1.", "1)", "1 -" (must be at or near line start)
+    r"(?:^|\n)\s{0,10}(\d+)\s*[.)]\s",
+    # Parenthesized: (1), (2) etc.
+    r"\((\d+)\)",
+    # Number followed by dash: "1 -", "2 –"
+    r"(?:^|\n)\s{0,10}(\d+)\s*[-–—]\s",
+    # "Q.1" style with a dot between Q and number
+    r"\bQ\.?\s*(\d+)\b",
 ]
 
 

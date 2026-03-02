@@ -55,6 +55,7 @@ class Config:
         self.RATE_LIMIT_RPM = int(os.getenv("RATE_LIMIT_RPM", "50"))
         self.MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
         self.RETRY_BASE_DELAY = float(os.getenv("RETRY_BASE_DELAY", "2.0"))
+        self.MAX_WORKERS = int(os.getenv("MAX_WORKERS", "4"))
 
         # --- OpenAI Model Settings ---
         self.OPENAI_EVAL_MODEL = os.getenv("OPENAI_EVAL_MODEL", "gpt-4o")

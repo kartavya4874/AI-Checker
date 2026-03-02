@@ -1,8 +1,11 @@
 """
 Course Processor: Process an entire course — all student PDFs.
+Supports multithreaded student processing.
 """
 
 import os
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import List, Dict, Any, Callable, Optional
 from ingestion.pdf_converter import pdf_to_images
@@ -15,6 +18,7 @@ from evaluation.few_shot_builder import build_few_shot_examples, get_few_shot_me
 from processing.student_processor import process_student
 from database.db_manager import DatabaseManager
 from utils.folder_scanner import scan_exam_folder, describe_scan, parse_exam_metadata
+from config import config
 from utils.logger import get_logger
 
 logger = get_logger("course_processor")
@@ -125,15 +129,20 @@ class CourseProcessor:
             summary["students_total"] = len(pdf_files)
             _progress(f"Found {len(pdf_files)} student PDFs")
 
-            # Step 6: Process each student
-            for idx, pdf_file in enumerate(pdf_files):
+            # Step 6: Process each student using multithreading
+            max_workers = getattr(config, 'MAX_WORKERS', 4)
+            _progress(f"Processing {len(pdf_files)} students with {max_workers} threads...")
+
+            # Thread-safe counter
+            lock = threading.Lock()
+
+            def _process_one_student(idx_pdf):
+                idx, pdf_file = idx_pdf
                 student_name = pdf_file.stem
                 roll_number = self._extract_roll_number(student_name)
-
                 _progress(
                     f"Processing student {idx + 1}/{len(pdf_files)}: {student_name}"
                 )
-
                 try:
                     # Create student record
                     student = self.db.create_student(
@@ -159,19 +168,34 @@ class CourseProcessor:
                         db=self.db,
                         few_shot_messages=few_shot_messages,
                         answer_key_images=answer_key_images,
-                        progress_callback=lambda msg: _progress(f"  [{student_name}] {msg}"),
+                        progress_callback=lambda msg, sn=student_name: _progress(f"  [{sn}] {msg}"),
                         grade_boundaries=grade_boundaries,
                         assessment_id=assessment_id,
                     )
 
                     if student_summary["status"] == "completed":
-                        summary["students_processed"] += 1
+                        with lock:
+                            summary["students_processed"] += 1
                     else:
-                        summary["errors"].append(f"{student_name}: processing error")
+                        with lock:
+                            summary["errors"].append(f"{student_name}: processing error")
 
                 except Exception as e:
                     logger.error(f"Failed to process {student_name}: {e}")
-                    summary["errors"].append(f"{student_name}: {str(e)}")
+                    with lock:
+                        summary["errors"].append(f"{student_name}: {str(e)}")
+
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                futures = [
+                    executor.submit(_process_one_student, (idx, pdf_file))
+                    for idx, pdf_file in enumerate(pdf_files)
+                ]
+                for future in as_completed(futures):
+                    # Propagate any uncaught exceptions
+                    try:
+                        future.result()
+                    except Exception as e:
+                        logger.error(f"Thread error: {e}")
 
             _progress(
                 f"\nProcessing complete: {summary['students_processed']}/{summary['students_total']} students"
@@ -269,10 +293,11 @@ class CourseProcessor:
                 "errors": scan.errors,
             }
 
-        # Copy students into a temp dir so process() can glob for *.pdf
+        # Copy students into a unique temp dir so process() can glob for *.pdf
         import shutil
-        from config import config
-        students_tmp = config.TEMP_DIR / "students_folder"
+        import threading
+        unique_suffix = f"{Path(root_folder).name}_{threading.get_ident()}"
+        students_tmp = config.TEMP_DIR / f"students_{unique_suffix}"
         if students_tmp.exists():
             shutil.rmtree(students_tmp)
         students_tmp.mkdir(parents=True)

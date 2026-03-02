@@ -27,7 +27,11 @@ class DatabaseManager:
 
     def __init__(self, database_url: str = None):
         self.database_url = database_url or config.DATABASE_URL
-        self.engine = create_engine(self.database_url, echo=False)
+        # Use a longer timeout for SQLite to handle concurrent thread access
+        connect_args = {}
+        if "sqlite" in self.database_url:
+            connect_args["timeout"] = 30
+        self.engine = create_engine(self.database_url, echo=False, connect_args=connect_args)
         self.SessionFactory = sessionmaker(bind=self.engine)
 
     def init_db(self):
